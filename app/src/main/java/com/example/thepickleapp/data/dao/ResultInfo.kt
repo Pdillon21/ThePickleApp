@@ -1,4 +1,4 @@
-package com.example.thepickleapp.data.dao.character
+package com.example.thepickleapp.data.dao
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName

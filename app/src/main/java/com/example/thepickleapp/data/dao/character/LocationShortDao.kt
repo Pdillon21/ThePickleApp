@@ -4,7 +4,7 @@ import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
 @Keep
-data class LocationDao(
+data class LocationShortDao(
     @SerializedName("name")
     val name: String?,
     @SerializedName("url")

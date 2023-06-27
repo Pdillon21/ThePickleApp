@@ -29,7 +29,7 @@ fun PickleImageView(
         contentScale = ContentScale.FillBounds
     )
     Box(modifier = Modifier.fillMaxSize()) {
-        val perro : Int = 3
+
         when (painter.state) {
             is AsyncImagePainter.State.Success -> {
                 ImageSuccessContainer((painter.state as AsyncImagePainter.State.Success).result.drawable)

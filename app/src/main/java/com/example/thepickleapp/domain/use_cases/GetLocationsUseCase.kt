@@ -1,7 +1,7 @@
 package com.example.thepickleapp.domain.use_cases
 
 import com.example.thepickleapp.data.result_wrapper.PickleResponseStatus
-import com.example.thepickleapp.domain.repo.CharacterRepository
+import com.example.thepickleapp.domain.repo.LocationsRepository
 import com.example.thepickleapp.presentation.main_screen.MainScreenUiState
 import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
 import com.example.thepickleapp.presentation.main_screen.search.state.getParamStringValue
@@ -11,18 +11,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetCharactersUseCase @Inject constructor(
-    private val repository: CharacterRepository
+class GetLocationsUseCase @Inject constructor(
+    private val repository: LocationsRepository
 ) {
     suspend operator fun invoke(queryData: QueryState?): Flow<MainScreenUiState> = flow {
         emit(MainScreenUiState.Loading)
-
-        val response = repository.getCharacters(
+        val response = repository.getLocations(
             name = queryData?.query,
-            status = queryData?.getParamStringValue("status"),
-            species = queryData?.getParamStringValue("species"),
             type = queryData?.getParamStringValue("type"),
-            gender = queryData?.getParamStringValue("gender")
+            dimension = queryData?.getParamStringValue("dimension")
         )
         when (response.status) {
             PickleResponseStatus.SUCCESS -> {

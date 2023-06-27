@@ -1,32 +1,21 @@
 package com.example.thepickleapp.data.repo
 
-import android.app.Application
-import com.example.thepickleapp.data.dao.character.CharacterResponseContainer
+import com.example.thepickleapp.data.dao.episode.EpisodeResponseContainer
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
 import com.example.thepickleapp.data.result_wrapper.PickleRequestResult
-import com.example.thepickleapp.domain.repo.CharacterRepository
+import com.example.thepickleapp.domain.repo.EpisodesRepository
 import java.io.IOException
 import java.lang.Exception
 
-class CharacterRepositoryImplementation(
-    private val rickAndMortyApi: RickAndMortyApi,
-    private val appContext: Application
-) : CharacterRepository {
+class EpisodesRepositoryImplementation(
+    private val rickAndMortyApi: RickAndMortyApi
+) : EpisodesRepository {
 
-    override suspend fun getCharacters(
-        name: String?,
-        status: String?,
-        species: String?,
-        type: String?,
-        gender: String?
-    ): PickleRequestResult<CharacterResponseContainer> {
+    override suspend fun getEpisodes(): PickleRequestResult<EpisodeResponseContainer> {
         return try {
-            val request = rickAndMortyApi.getCharacters(
-                name = name,
-                status = status,
-                species = species,
-                type = type,
-                gender = gender
+            val request = rickAndMortyApi.getEpisodes(
+                name = null,
+                episode = null
             )
             if (request.isSuccessful) {
                 PickleRequestResult.success(request.body())
@@ -41,5 +30,4 @@ class CharacterRepositoryImplementation(
             PickleRequestResult.serverError(errorMessage = e.message)
         }
     }
-
 }

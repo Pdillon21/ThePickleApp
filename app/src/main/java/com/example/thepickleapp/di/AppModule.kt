@@ -4,8 +4,14 @@ import android.app.Application
 import com.example.thepickleapp.BuildConfig
 import com.example.thepickleapp.data.repo.CharacterRepositoryImplementation
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
+import com.example.thepickleapp.data.repo.EpisodesRepositoryImplementation
+import com.example.thepickleapp.data.repo.LocationsRepositoryImplementation
 import com.example.thepickleapp.domain.repo.CharacterRepository
+import com.example.thepickleapp.domain.repo.EpisodesRepository
+import com.example.thepickleapp.domain.repo.LocationsRepository
 import com.example.thepickleapp.domain.use_cases.GetCharactersUseCase
+import com.example.thepickleapp.domain.use_cases.GetEpisodesUseCase
+import com.example.thepickleapp.domain.use_cases.GetLocationsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +36,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRepository(
+    fun provideCharacterRepository(
         rickAndMortyApi: RickAndMortyApi, app: Application
     ): CharacterRepository {
         return CharacterRepositoryImplementation(
@@ -40,9 +46,45 @@ object AppModule {
 
     @Provides
     @Singleton
+    fun provideLocationsRepository(
+        rickAndMortyApi: RickAndMortyApi, app: Application
+    ): LocationsRepository {
+        return LocationsRepositoryImplementation(
+            rickAndMortyApi = rickAndMortyApi
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideEpisodesRepository(
+        rickAndMortyApi: RickAndMortyApi
+    ): EpisodesRepository {
+        return EpisodesRepositoryImplementation(
+            rickAndMortyApi = rickAndMortyApi
+        )
+    }
+
+    @Provides
+    @Singleton
     fun provideGetCharactersUseCase(
         repository: CharacterRepository
     ): GetCharactersUseCase {
         return GetCharactersUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetEpisodesUseCase(
+        repository: EpisodesRepository
+    ): GetEpisodesUseCase {
+        return GetEpisodesUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetLocationsUseCase(
+        repository: LocationsRepository
+    ): GetLocationsUseCase {
+        return GetLocationsUseCase(repository)
     }
 }

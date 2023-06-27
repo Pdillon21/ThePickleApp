@@ -1,29 +1,20 @@
 package com.example.thepickleapp.domain.use_cases
 
 import com.example.thepickleapp.data.result_wrapper.PickleResponseStatus
-import com.example.thepickleapp.domain.repo.CharacterRepository
+import com.example.thepickleapp.domain.repo.EpisodesRepository
 import com.example.thepickleapp.presentation.main_screen.MainScreenUiState
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
-import com.example.thepickleapp.presentation.main_screen.search.state.getParamStringValue
 import com.example.thepickleapp.presentation.utils.ErrorData
 import com.example.thepickleapp.presentation.utils.ErrorUtils
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetCharactersUseCase @Inject constructor(
-    private val repository: CharacterRepository
+class GetEpisodesUseCase @Inject constructor(
+    private val repository: EpisodesRepository
 ) {
-    suspend operator fun invoke(queryData: QueryState?): Flow<MainScreenUiState> = flow {
+    suspend operator fun invoke(): Flow<MainScreenUiState> = flow {
         emit(MainScreenUiState.Loading)
-
-        val response = repository.getCharacters(
-            name = queryData?.query,
-            status = queryData?.getParamStringValue("status"),
-            species = queryData?.getParamStringValue("species"),
-            type = queryData?.getParamStringValue("type"),
-            gender = queryData?.getParamStringValue("gender")
-        )
+        val response = repository.getEpisodes()
         when (response.status) {
             PickleResponseStatus.SUCCESS -> {
                 if (response.data != null) {
