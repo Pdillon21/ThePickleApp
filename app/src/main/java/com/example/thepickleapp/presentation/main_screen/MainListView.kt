@@ -15,6 +15,7 @@ import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
 import com.example.thepickleapp.presentation.common_views.CharacterColumnCell
 import com.example.thepickleapp.presentation.common_views.EpisodeColumnCell
 import com.example.thepickleapp.presentation.common_views.LocationColumnCell
+import kotlin.random.Random
 
 @Composable
 fun MainListView(
@@ -25,7 +26,7 @@ fun MainListView(
         verticalArrangement = Arrangement.spacedBy(8.dp),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
     ) {
-        items(items = listState, itemContent = { singleItem ->
+        items(items = listState, key = { getKeyForDao(it) }, itemContent = { singleItem ->
             when (singleItem) {
                 is CharacterDao -> {
                     CharacterColumnCell(singleItem)
@@ -40,5 +41,20 @@ fun MainListView(
                 }
             }
         })
+    }
+}
+
+fun getKeyForDao(dao: PickleResultDaoBase): Int {
+    return when (dao) {
+        is CharacterDao -> {
+            dao.id ?: Random.nextInt(0, 1000000000)
+        }
+
+        is LocationDao -> {
+            dao.id ?: Random.nextInt(0, 1000000000)
+        }
+        is EpisodeDao -> {
+            dao.id ?: Random.nextInt(0, 1000000000)
+        }
     }
 }
