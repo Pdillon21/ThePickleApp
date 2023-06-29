@@ -1,5 +1,5 @@
 # The Pickle App ![Static Badge](https://img.shields.io/badge/Android-3DDC84)
-## _by Patricio Dillon_ - 
+## _by Patricio Dillon_ 
 [![Linkedin](https://skillicons.dev/icons?i=linkedin&theme=light)](https://www.linkedin.com/in/patricio-dillon/) &nbsp; [![GitHub](https://skillicons.dev/icons?i=github&theme=light)](https://github.com/Pdillon21)
 ##### A demo project that allows users to search characters, locations and episodes of the Rick & Morty's animated series.
 &nbsp;
@@ -17,11 +17,11 @@
 ## Features
 
 * Search series' characters, episodes and locations by name
-*  Additional filters for characters: 
-  * status: ![Static Badge](https://img.shields.io/badge/Alive-CDFFC7) ![Static Badge](https://img.shields.io/badge/Dead-FFFFFF) ![Static Badge](https://img.shields.io/badge/Unknown-8A2BE2)
-  * Gender: ![Static Badge](https://img.shields.io/badge/Male-8A2BE2) ![Static Badge](https://img.shields.io/badge/Female-8A2BE2) ![Static Badge](https://img.shields.io/badge/Unknown-8A2BE2) ![Static Badge](https://img.shields.io/badge/Genderless-8A2BE2)
-  * Character type
-  * Last known dimension
+*  Additional filters for characters
+   * status: ![Static Badge](https://img.shields.io/badge/Alive-CDFFC7) ![Static Badge](https://img.shields.io/badge/Dead-FFFFFF) ![Static Badge](https://img.shields.io/badge/Unknown-0d1821)
+   * Gender: ![Static Badge](https://img.shields.io/badge/Male-3273FF) ![Static Badge](https://img.shields.io/badge/Female-DD7596) ![Static Badge](https://img.shields.io/badge/Unknown-0d1821) ![Static Badge](https://img.shields.io/badge/Genderless-8874CB)
+   * Character type
+   * Last known dimension
 * Additional filters for Locations:
   * Location type
   * Location's dimension
