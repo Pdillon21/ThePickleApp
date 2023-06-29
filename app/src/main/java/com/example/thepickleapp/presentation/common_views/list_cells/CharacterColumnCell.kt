@@ -1,4 +1,4 @@
-package com.example.thepickleapp.presentation.common_views
+package com.example.thepickleapp.presentation.common_views.list_cells
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
+import com.example.thepickleapp.presentation.common_views.BasePickleCard
+import com.example.thepickleapp.presentation.common_views.PickleImageView
 
 @Composable
 fun CharacterColumnCell(singleItem: CharacterDao) {

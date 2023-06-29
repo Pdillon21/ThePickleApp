@@ -12,9 +12,9 @@ import com.example.thepickleapp.data.dao.PickleResultDaoBase
 import com.example.thepickleapp.data.dao.PickleResultDaoBase.LocationDao
 import com.example.thepickleapp.data.dao.PickleResultDaoBase.EpisodeDao
 import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
-import com.example.thepickleapp.presentation.common_views.CharacterColumnCell
-import com.example.thepickleapp.presentation.common_views.EpisodeColumnCell
-import com.example.thepickleapp.presentation.common_views.LocationColumnCell
+import com.example.thepickleapp.presentation.common_views.list_cells.CharacterColumnCell
+import com.example.thepickleapp.presentation.common_views.list_cells.EpisodeColumnCell
+import com.example.thepickleapp.presentation.common_views.list_cells.LocationColumnCell
 import kotlin.random.Random
 
 @Composable
