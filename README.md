@@ -29,15 +29,15 @@
 
 ## Tech:
 * Language
-![Static Badge](https://img.shields.io/badge/Kotlin-8A2BE2)
+![Static Badge](https://img.shields.io/badge/Kotlin-5941A9)
 * Views
 ![Static Badge](https://img.shields.io/badge/Jetpack%20Compose-8A2BE2)
 * Architecture
-![Static Badge](https://img.shields.io/badge/MVVM-8A2BE2) ![Static Badge](https://img.shields.io/badge/Clean%20Architecrure-8A2BE2) ![Static Badge](https://img.shields.io/badge/Use%20Cases-8A2BE2)
+![Static Badge](https://img.shields.io/badge/MVVM-BE6E46) ![Static Badge](https://img.shields.io/badge/Clean%20Architecrure-BE6E46) ![Static Badge](https://img.shields.io/badge/Use%20Cases-BE6E46)
 * Libraries
   * Networking
-&nbsp; ![Static Badge](https://img.shields.io/badge/Retofit-8A2BE2) ![Static Badge](https://img.shields.io/badge/Gson-8A2BE2)
+&nbsp; ![Static Badge](https://img.shields.io/badge/Retofit-157F1F) ![Static Badge](https://img.shields.io/badge/Gson-157F1F)
   * Dependency Injection
-&nbsp; ![Static Badge](https://img.shields.io/badge/Hilt-8A2BE2)
+&nbsp; ![Static Badge](https://img.shields.io/badge/Hilt-E7E247)
 * Others
-![Static Badge](https://img.shields.io/badge/Koltin%20Coroutines-8A2BE2) ![Static Badge](https://img.shields.io/badge/Kotlin%20Flows-8A2BE2)
+![Static Badge](https://img.shields.io/badge/Koltin%20Coroutines-6CD4FF) ![Static Badge](https://img.shields.io/badge/Kotlin%20Flows-6CD4FF)
