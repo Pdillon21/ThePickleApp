@@ -1,5 +1,6 @@
 # The Pickle App ![Static Badge](https://img.shields.io/badge/Android-3DDC84)
-## _by Patricio Dillon_ - [![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/patricio-dillon/) [![GitHub](https://i.stack.imgur.com/tskMh.png)](https://github.com/Pdillon21)
+## _by Patricio Dillon_ - 
+[![Linkedin](https://skillicons.dev/icons?i=linkedin&theme=light)](https://www.linkedin.com/in/patricio-dillon/) &nbsp; [![GitHub](https://skillicons.dev/icons?i=github&theme=light)](https://github.com/Pdillon21)
 ##### A demo project that allows users to search characters, locations and episodes of the Rick & Morty's animated series.
 &nbsp;
 ## Why?
@@ -15,31 +16,28 @@
 
 ## Features
 
-- Search series' characters, episodes and locations by name
-- Additional filters for characters:
--- Status: ![Static Badge](https://img.shields.io/badge/Alive-CDFFC7) ![Static Badge](https://img.shields.io/badge/Dead-FFFFFF) ![Static Badge](https://img.shields.io/badge/Unknown-8A2BE2)
--- Gender: ![Static Badge](https://img.shields.io/badge/Male-8A2BE2) ![Static Badge](https://img.shields.io/badge/Female-8A2BE2) ![Static Badge](https://img.shields.io/badge/Unknown-8A2BE2) ![Static Badge](https://img.shields.io/badge/Genderless-8A2BE2)
--- Character type
--- Last known dimension
-- Additional filters for Locations:
--- Location type
--- Location's dimension
-- Alternative search by code for Episodes
+* Search series' characters, episodes and locations by name
+*  Additional filters for characters: 
+  * status: ![Static Badge](https://img.shields.io/badge/Alive-CDFFC7) ![Static Badge](https://img.shields.io/badge/Dead-FFFFFF) ![Static Badge](https://img.shields.io/badge/Unknown-8A2BE2)
+  * Gender: ![Static Badge](https://img.shields.io/badge/Male-8A2BE2) ![Static Badge](https://img.shields.io/badge/Female-8A2BE2) ![Static Badge](https://img.shields.io/badge/Unknown-8A2BE2) ![Static Badge](https://img.shields.io/badge/Genderless-8A2BE2)
+  * Character type
+  * Last known dimension
+* Additional filters for Locations:
+  * Location type
+  * Location's dimension
+* Alternative search by code for Episodes
 
 ## Tech:
-- Language
+* Language
 ![Static Badge](https://img.shields.io/badge/Kotlin-8A2BE2)
-- Views
+* Views
 ![Static Badge](https://img.shields.io/badge/Jetpack%20Compose-8A2BE2)
-- Architecture
+* Architecture
 ![Static Badge](https://img.shields.io/badge/MVVM-8A2BE2) ![Static Badge](https://img.shields.io/badge/Clean%20Architecrure-8A2BE2) ![Static Badge](https://img.shields.io/badge/Use%20Cases-8A2BE2)
-- Libraries
---Networking
+* Libraries
+  * Networking
 &nbsp; ![Static Badge](https://img.shields.io/badge/Retofit-8A2BE2) ![Static Badge](https://img.shields.io/badge/Gson-8A2BE2)
--- Dependency Injection
+  * Dependency Injection
 &nbsp; ![Static Badge](https://img.shields.io/badge/Hilt-8A2BE2)
-- Others
+* Others
 ![Static Badge](https://img.shields.io/badge/Koltin%20Coroutines-8A2BE2) ![Static Badge](https://img.shields.io/badge/Kotlin%20Flows-8A2BE2)
-
-[personal_linked_in]: <https://www.linkedin.com/in/patricio-dillon/>
-[git-repo-url]: <https://github.com/Pdillon21>
