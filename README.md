@@ -27,7 +27,7 @@
   * Location's dimension
 * Alternative search by code for Episodes
 
-## Tech:
+## Tech
 * Language
 ![Static Badge](https://img.shields.io/badge/Kotlin-5941A9)
 * Views
