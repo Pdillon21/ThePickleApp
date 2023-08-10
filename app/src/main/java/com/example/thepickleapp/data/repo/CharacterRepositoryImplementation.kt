@@ -18,7 +18,8 @@ class CharacterRepositoryImplementation(
         status: String?,
         species: String?,
         type: String?,
-        gender: String?
+        gender: String?,
+        page : Int
     ): PickleRequestResult<CharacterResponseContainer> {
         return try {
             val request = rickAndMortyApi.getCharacters(
@@ -26,7 +27,8 @@ class CharacterRepositoryImplementation(
                 status = status,
                 species = species,
                 type = type,
-                gender = gender
+                gender = gender,
+                page = page
             )
             if (request.isSuccessful) {
                 PickleRequestResult.success(request.body())

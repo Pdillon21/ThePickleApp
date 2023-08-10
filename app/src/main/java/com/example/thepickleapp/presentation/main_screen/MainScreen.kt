@@ -24,9 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.example.thepickleapp.data.dao.character.CharacterResponseContainer
-import com.example.thepickleapp.data.dao.episode.EpisodeResponseContainer
-import com.example.thepickleapp.data.dao.location.LocationResponseContainer
 import com.example.thepickleapp.presentation.common_views.BaseErrorScreen
 import com.example.thepickleapp.presentation.common_views.EmptyLoadingScreen
 import com.example.thepickleapp.presentation.common_views.search.PickleSearchBar
@@ -46,12 +43,15 @@ fun MainScreen(
             topBar = {
                 Column() {
                     GetSearchToolsView() { newQueryData ->
-                        viewModel.peformNewQuery(newQueryData)
+                        viewModel.setQueryData(newQueryData)
+                        viewModel.query()
                     }
                 }
             }
         ) { padding ->
-            GetResultViewByState(screenState = resultState, padding)
+            GetResultViewByState(screenState = resultState, padding) {
+                viewModel.query()
+            }
         }
     }
 }
@@ -87,7 +87,12 @@ fun GetSearchToolsView(
                 .padding(horizontal = 8.dp),
             queryState = queryState,
         ) { newQuery ->
-            queryState = newQuery
+            if (queryState.selectedQueryType != newQuery.selectedQueryType) {
+                queryState = newQuery
+                newQuery(queryState)
+            } else {
+                queryState = newQuery
+            }
         }
         PickleSearchSummary(queryState)
         Spacer(modifier = Modifier.height(8.dp))
@@ -101,7 +106,11 @@ fun GetSearchToolsView(
 }
 
 @Composable
-fun GetResultViewByState(screenState: MainScreenUiState, padding: PaddingValues) {
+fun GetResultViewByState(
+    screenState: MainScreenUiState,
+    padding: PaddingValues,
+    listEndReached: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -117,20 +126,12 @@ fun GetResultViewByState(screenState: MainScreenUiState, padding: PaddingValues)
             }
 
             is MainScreenUiState.Success -> {
-                //ToDo should have straight forwards deserialization, this will allow to have multiple
-                // types of cells in this same composable
-                when (screenState.data) {
-                    is CharacterResponseContainer -> {
-                        MainListView(listState = screenState.data.results)
-                    }
-
-                    is EpisodeResponseContainer -> {
-                        MainListView(listState = screenState.data.results)
-                    }
-
-                    is LocationResponseContainer -> {
-                        MainListView(listState = screenState.data.results)
-                    }
+                MainListView(
+                    listState = screenState.data,
+                    isPaging = screenState.isPaging,
+                    noMoreResults = screenState.isLastPage
+                ) {
+                    listEndReached()
                 }
             }
         }

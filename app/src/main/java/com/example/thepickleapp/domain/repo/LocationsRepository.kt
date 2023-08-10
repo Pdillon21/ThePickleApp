@@ -8,6 +8,7 @@ interface LocationsRepository {
     suspend fun getLocations(
         name: String?,
         type: String?,
-        dimension: String?
+        dimension: String?,
+        page : Int
     ): PickleRequestResult<LocationResponseContainer>
 }

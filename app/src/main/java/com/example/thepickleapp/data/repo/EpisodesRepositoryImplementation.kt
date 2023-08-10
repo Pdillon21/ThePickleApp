@@ -11,11 +11,16 @@ class EpisodesRepositoryImplementation(
     private val rickAndMortyApi: RickAndMortyApi
 ) : EpisodesRepository {
 
-    override suspend fun getEpisodes(): PickleRequestResult<EpisodeResponseContainer> {
+    override suspend fun getEpisodes(
+        name: String?,
+        episode: String?,
+        page: Int
+    ): PickleRequestResult<EpisodeResponseContainer> {
         return try {
             val request = rickAndMortyApi.getEpisodes(
-                name = null,
-                episode = null
+                name = name,
+                episode = episode,
+                page = page
             )
             if (request.isSuccessful) {
                 PickleRequestResult.success(request.body())

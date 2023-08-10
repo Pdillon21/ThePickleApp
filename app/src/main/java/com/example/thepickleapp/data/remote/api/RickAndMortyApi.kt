@@ -15,19 +15,22 @@ interface RickAndMortyApi {
         @Query("status") status: String?,
         @Query("species") species: String?,
         @Query("type") type: String?,
-        @Query("gender") gender: String?
+        @Query("gender") gender: String?,
+        @Query ("page") page : Int
     ): Response<CharacterResponseContainer>
 
     @GET("/api/location")
     suspend fun getLocations(
         @Query("name") name: String?,
         @Query("type") type: String?,
-        @Query("dimension") dimension: String?
+        @Query("dimension") dimension: String?,
+        @Query ("page") page : Int
     ): Response<LocationResponseContainer>
 
     @GET("api/episode")
     suspend fun getEpisodes(
         @Query("name") name: String?,
-        @Query("episode") episode: String?
+        @Query("episode") episode: String?,
+        @Query ("page") page : Int
     ): Response<EpisodeResponseContainer>
 }

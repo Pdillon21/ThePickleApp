@@ -31,7 +31,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.PickleChip
-import com.example.thepickleapp.presentation.main_screen.search.utils.EpisodeFilterType
 import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
 import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersState
 import com.example.thepickleapp.presentation.main_screen.search.state.QueryState

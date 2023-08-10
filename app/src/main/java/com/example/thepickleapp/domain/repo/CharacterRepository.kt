@@ -10,6 +10,7 @@ interface CharacterRepository {
         status: String?,
         species: String?,
         type: String?,
-        gender: String?
+        gender: String?,
+        page : Int
     ): PickleRequestResult<CharacterResponseContainer>
 }

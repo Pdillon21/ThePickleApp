@@ -14,13 +14,15 @@ class LocationsRepositoryImplementation(
     override suspend fun getLocations(
         name: String?,
         type: String?,
-        dimension: String?
+        dimension: String?,
+        page: Int
     ): PickleRequestResult<LocationResponseContainer> {
         return try {
             val request = rickAndMortyApi.getLocations(
                 name = name,
                 type =type,
-                dimension = dimension
+                dimension = dimension,
+                page = page
             )
             if (request.isSuccessful) {
                 PickleRequestResult.success(request.body())

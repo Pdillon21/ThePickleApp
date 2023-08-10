@@ -1,18 +1,18 @@
 package com.example.thepickleapp.presentation.main_screen.search.state
 
-import com.example.thepickleapp.presentation.main_screen.search.utils.SearchResources
+import com.example.thepickleapp.presentation.main_screen.search.utils.SearchType
 
 data class QueryState(
     val query: String?,
     val selectedQueryType: String,
-    val extraFiltersState: ExtraFiltersState,
+    val extraFiltersState: ExtraFiltersState
 ) {
 
     companion object {
         fun getInitialQueryState(): QueryState {
             return QueryState(
                 query = null,
-                selectedQueryType = SearchResources.searchType.characters,
+                selectedQueryType = SearchType.characters,
                 extraFiltersState = ExtraFiltersState(
                     isExpanded = false,
                     filtersAreApplied = false,

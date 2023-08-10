@@ -4,7 +4,6 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
 import com.example.thepickleapp.di.IoDispatcher
 import com.example.thepickleapp.domain.use_cases.GetCharactersUseCase
 import com.example.thepickleapp.domain.use_cases.GetEpisodesUseCase
@@ -19,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.IllegalStateException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -32,15 +32,15 @@ class MainViewModel @Inject constructor(
     private val _uiState = mutableStateOf(MainScreenUiState.Loading as MainScreenUiState)
     val uiState: State<MainScreenUiState> = _uiState
 
-    private val _characterList = mutableStateOf(emptyList<CharacterDao>())
-    val characterList: State<List<CharacterDao>> = _characterList
+    private val _query = mutableStateOf(QueryState.getInitialQueryState())
+    val query: State<QueryState> = _query
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { a, b ->
         asignBasicError()
     }
 
     init {
-        getAllCharacters()
+        query()
     }
 
 
@@ -50,21 +50,12 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    private fun getAllCharacters() {
+    fun query() {
         viewModelScope.launch(dispatcher + coroutineExceptionHandler) {
-            getCharactersUseCase.invoke(null).collectLatest { flowUiState ->
-                withContext(Dispatchers.Main) {
-                    _uiState.value = flowUiState
-                }
-            }
-        }
-    }
-
-    fun peformNewQuery(newQueryData: QueryState) {
-        viewModelScope.launch(dispatcher + coroutineExceptionHandler) {
-            when (newQueryData.selectedQueryType) {
+            val currentQueryState = getCurrentQuerySate()
+            when (currentQueryState.selectedQueryType) {
                 SearchType.characters -> {
-                    getCharactersUseCase.invoke(newQueryData).collectLatest { flowUiState ->
+                    getCharactersUseCase.invoke(currentQueryState).collectLatest { flowUiState ->
                         withContext(Dispatchers.Main) {
                             _uiState.value = flowUiState
                         }
@@ -72,7 +63,7 @@ class MainViewModel @Inject constructor(
                 }
 
                 SearchType.episodes -> {
-                    getEpisodesUseCase.invoke().collectLatest { flowUiState ->
+                    getEpisodesUseCase.invoke(currentQueryState).collectLatest { flowUiState ->
                         withContext(Dispatchers.Main) {
                             _uiState.value = flowUiState
                         }
@@ -80,13 +71,32 @@ class MainViewModel @Inject constructor(
                 }
 
                 SearchType.locations -> {
-                    getLocationsUseCase.invoke(newQueryData).collectLatest { flowUiState ->
+                    getLocationsUseCase.invoke(currentQueryState).collectLatest { flowUiState ->
                         withContext(Dispatchers.Main) {
                             _uiState.value = flowUiState
                         }
                     }
                 }
             }
+        }
+    }
+
+    private fun getCurrentQuerySate(): QueryState {
+        return try {
+            query.value
+        } catch (e: IllegalStateException) {
+            QueryState.getInitialQueryState()
+        }
+    }
+
+    fun setQueryData(newQueryData: QueryState) {
+        if (
+            _query.value.selectedQueryType != newQueryData.selectedQueryType
+        ) {
+            _query.value = newQueryData
+            query()
+        } else {
+            _query.value = newQueryData
         }
     }
 }

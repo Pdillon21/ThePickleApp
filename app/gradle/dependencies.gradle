@@ -1,9 +1,16 @@
 dependencies {
-    def retrofitVersion = '2.9.0'
+    def retrofit_version = '2.9.0'
+    def paging_version = '3.1.1'
+    def paging_compose_version = '3.2.0'
+
+
+    //Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+    implementation "androidx.paging:paging-compose:$paging_compose_version"
 
     //Networking
-    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.google.code.gson:gson:2.10.1'
 
     //ImageLoading
