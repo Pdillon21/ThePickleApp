@@ -24,7 +24,11 @@ object Paginator {
             }
         }
         data.getResponseResults()?.let { newResults ->
-            results = results + newResults
+            results = if (results[results.size-1]::class == newResults[0]::class){
+                results + newResults
+            } else {
+                newResults
+            }
         }
     }
 
