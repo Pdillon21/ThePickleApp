@@ -8,10 +8,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.thepickleapp.data.dao.CharacterDao
+import com.example.thepickleapp.data.dao.EpisodeDao
+import com.example.thepickleapp.data.dao.LocationDao
 import com.example.thepickleapp.data.dao.PickleResultDaoBase
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.LocationDao
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.EpisodeDao
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
 import com.example.thepickleapp.presentation.common_views.list_cells.CharacterColumnCell
 import com.example.thepickleapp.presentation.common_views.list_cells.EpisodeColumnCell
 import com.example.thepickleapp.presentation.common_views.list_cells.LocationColumnCell

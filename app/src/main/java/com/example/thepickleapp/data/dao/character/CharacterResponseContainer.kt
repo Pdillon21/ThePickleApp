@@ -1,7 +1,7 @@
 package com.example.thepickleapp.data.dao.character
 
 import androidx.annotation.Keep
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
+import com.example.thepickleapp.data.dao.CharacterDao
 import com.example.thepickleapp.data.dao.ResponseContainerBase
 import com.example.thepickleapp.data.dao.ResultInfo
 import com.google.gson.annotations.SerializedName

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.EpisodeDao
+import com.example.thepickleapp.data.dao.EpisodeDao
 import com.example.thepickleapp.presentation.common_views.general.DataPill
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
 import com.example.thepickleapp.presentation.common_views.utils.TextUtils
@@ -140,8 +140,8 @@ fun EpisodeName(name: String?) {
 fun PreviewEpisodeColumnCell() {
     EpisodeColumnCell(
         item = EpisodeDao(
-            id = 1,
-            name = "Pilot",
+            episodeId = 1,
+            episodeName = "Pilot",
             airDate = "December 2, 2013",
             episode = "S01E01",
             characters = listOf(

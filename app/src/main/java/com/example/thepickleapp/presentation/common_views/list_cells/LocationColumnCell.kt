@@ -21,7 +21,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.LocationDao
+import com.example.thepickleapp.data.dao.LocationDao
 import com.example.thepickleapp.presentation.common_views.general.DataPill
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
 import com.example.thepickleapp.presentation.common_views.utils.TextUtils
@@ -129,8 +129,8 @@ fun LocationTypePill(type: String?) {
 fun PreviewLocationColumnCell() {
     LocationColumnCell(
         item = LocationDao(
-            id = 1,
-            name = "Earth",
+            locationId  = 1,
+            locationName = "Earth",
             type = "Planet",
             dimension = "Dimension C-137",
             residents = listOf("one", "two"),

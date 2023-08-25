@@ -27,7 +27,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.thepickleapp.data.dao.PickleResultDaoBase.CharacterDao
+import com.example.thepickleapp.data.dao.CharacterDao
 import com.example.thepickleapp.data.dao.character.LocationShortDao
 import com.example.thepickleapp.presentation.common_views.general.PickleImageView
 import com.example.thepickleapp.presentation.common_views.utils.TextUtils
@@ -180,8 +180,8 @@ fun CharacterLocationData(locationFrom: String, locationIn: String) {
 fun PreviewCharacterColumnCell() {
     CharacterColumnCell(
         singleItem = CharacterDao(
-            id = 1,
-            name = "Pablo",
+            characterId = 1,
+            characterName = "Pablo",
             status = "Unknown",
             species = "Human",
             type = "Bot",
