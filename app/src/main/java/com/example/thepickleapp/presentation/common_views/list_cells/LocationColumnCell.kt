@@ -1,77 +1,127 @@
 package com.example.thepickleapp.presentation.common_views.list_cells
 
-import androidx.compose.foundation.layout.Arrangement
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.thepickleapp.data.dao.PickleResultDaoBase.LocationDao
-import com.example.thepickleapp.domain.utils.getFormatedCreationDate
-import com.example.thepickleapp.presentation.common_views.BasePickleCard
-import com.example.thepickleapp.presentation.common_views.PickleChip
+import com.example.thepickleapp.presentation.common_views.general.DataPill
+import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
+import com.example.thepickleapp.presentation.common_views.utils.TextUtils
 
 @Composable
 fun LocationColumnCell(item: LocationDao) {
-    BasePickleCard {
-        Column(
+    ElevatedContainer(
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight(),
+        color = Color(0xffC9FCFF),
+        bottomElevation = 2.dp,
+        sideElevation = 2.dp
+    ) {
+        Text(
             modifier = Modifier
-                .padding(8.dp)
                 .fillMaxWidth()
-                .wrapContentHeight(),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+                .offset(y = (-36).dp, x = (-10).dp),
+            text = TextUtils.getInitialsAndNumbers(item.name ?: "Unknown"),
+            color = Color.Black.copy(alpha = 0.1f),
+            textAlign = TextAlign.End,
+            fontWeight = FontWeight.Bold,
+            fontSize = 96.sp,
+            overflow = TextOverflow.Clip,
+            maxLines = 1
+        )
+        Column(
+            modifier = Modifier.padding(16.dp)
         ) {
-            Text(
-                text = item.name ?: "NoName",
-                fontSize = 24.sp,
-                fontWeight = FontWeight.Bold
-            )
-            Row(
-                verticalAlignment = Alignment.Top,
-                modifier = Modifier.padding(start = 4.dp)
-            ) {
-                PickleChip(
-                    iconResource = null,
-                    text = item.type ?: "Unknown",
-                    isSelected = false,
-                    contentDescription = "Location Type"
-                ) {}
-                Spacer(modifier = Modifier.width(4.dp))
-                PickleChip(
-                    iconResource = null,
-                    text = item.dimension ?: "Unknown",
-                    isSelected = false,
-                    contentDescription = "Location Dimension"
-                ) {}
-            }
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = "Residents: ${item.residents?.size ?: "Unknown number"}",
-                    modifier = Modifier.padding(
-                        start = 4.dp
-                    )
-                )
-                Text(
-                    modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.End,
-                    text = "Created: ${item.getFormatedCreationDate()}"
-                )
-            }
+            LocationTypePill(item.type)
+            Spacer(modifier = Modifier.height(6.dp))
+            LocationName(item.name)
+            Spacer(modifier = Modifier.height(8.dp))
+            DimensionData(item.dimension)
+            Spacer(modifier = Modifier.height(8.dp))
+            ResidentsData(item.residents)
         }
     }
+}
+
+@Composable
+fun ResidentsData(residents: List<String>?) {
+    val residenstsString = if (residents.isNullOrEmpty()) {
+        "Unknown"
+    } else {
+        residents.size.toString()
+    }
+    Row {
+        Text(
+            text = "Dimension:",
+            fontWeight = FontWeight.Bold,
+            fontSize = 12.sp,
+            color = Color.Black
+        )
+        Spacer(modifier = Modifier.width(2.dp))
+        Text(
+            text = residenstsString,
+            fontSize = 12.sp,
+            color = Color.Black
+        )
+    }
+}
+
+@Composable
+fun DimensionData(dimension: String?) {
+    Row {
+        Text(
+            text = "Dimension:",
+            fontWeight = FontWeight.Bold,
+            fontSize = 12.sp,
+            color = Color.Black
+        )
+        Spacer(modifier = Modifier.width(2.dp))
+        Text(
+            text = dimension ?: "Unknown",
+            fontSize = 12.sp,
+            color = Color.Black
+        )
+    }
+}
+
+@Composable
+fun LocationName(name: String?) {
+    Text(
+        text = name ?: "Unknown",
+        fontSize = 24.sp,
+        fontWeight = FontWeight.Bold,
+        color = Color.Black,
+        maxLines = 3
+    )
+}
+
+@Composable
+fun LocationTypePill(type: String?) {
+    DataPill(
+        modifier = Modifier.wrapContentSize(),
+        text = type ?: "Unknown",
+        color = Color(0xffF7EEFF),
+        textColor = Color.Black
+    )
 }
 
 @Preview

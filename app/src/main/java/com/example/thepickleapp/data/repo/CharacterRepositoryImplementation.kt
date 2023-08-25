@@ -1,6 +1,5 @@
 package com.example.thepickleapp.data.repo
 
-import android.app.Application
 import com.example.thepickleapp.data.dao.character.CharacterResponseContainer
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
 import com.example.thepickleapp.data.result_wrapper.PickleRequestResult
@@ -9,8 +8,7 @@ import java.io.IOException
 import java.lang.Exception
 
 class CharacterRepositoryImplementation(
-    private val rickAndMortyApi: RickAndMortyApi,
-    private val appContext: Application
+    private val rickAndMortyApi: RickAndMortyApi
 ) : CharacterRepository {
 
     override suspend fun getCharacters(

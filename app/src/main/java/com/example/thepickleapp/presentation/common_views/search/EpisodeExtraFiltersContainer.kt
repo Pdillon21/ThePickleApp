@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
-import com.example.thepickleapp.presentation.common_views.PickleChip
+import com.example.thepickleapp.presentation.common_views.general.PickleChip
 import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
 import com.example.thepickleapp.presentation.main_screen.search.state.changeQueryType
 import com.example.thepickleapp.presentation.main_screen.search.utils.EpisodeFilterType
@@ -30,16 +30,13 @@ fun EpisodesExtraFiltersContainer(
             PickleChip(
                 iconResource = R.drawable.baseline_short_text_24,
                 text = EpisodeFilterType.episodeFilterByName,
-                isSelected = extraFiltersData.episodeQueryType == EpisodeFilterType.episodeFilterByName,
-                contentDescription = EpisodeFilterType.episodeFilterByName
-            ) {
+                isSelected = extraFiltersData.episodeQueryType == EpisodeFilterType.episodeFilterByName) {
                 changeExtraFiltersData(extraFiltersData.changeQueryType(EpisodeFilterType.episodeFilterByName))
             }
             PickleChip(
                 iconResource = R.drawable.baseline_123_24,
                 text = EpisodeFilterType.episodeFilterByCode,
-                isSelected = extraFiltersData.episodeQueryType == EpisodeFilterType.episodeFilterByCode,
-                contentDescription = EpisodeFilterType.episodeFilterByCode
+                isSelected = extraFiltersData.episodeQueryType == EpisodeFilterType.episodeFilterByCode
             ) {
                 changeExtraFiltersData(extraFiltersData.changeQueryType(EpisodeFilterType.episodeFilterByCode))
             }

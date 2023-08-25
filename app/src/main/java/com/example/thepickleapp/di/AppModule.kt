@@ -1,6 +1,5 @@
 package com.example.thepickleapp.di
 
-import android.app.Application
 import com.example.thepickleapp.BuildConfig
 import com.example.thepickleapp.data.repo.CharacterRepositoryImplementation
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
@@ -37,17 +36,17 @@ object AppModule {
     @Provides
     @Singleton
     fun provideCharacterRepository(
-        rickAndMortyApi: RickAndMortyApi, app: Application
+        rickAndMortyApi: RickAndMortyApi
     ): CharacterRepository {
         return CharacterRepositoryImplementation(
-            rickAndMortyApi = rickAndMortyApi, appContext = app
+            rickAndMortyApi = rickAndMortyApi
         )
     }
 
     @Provides
     @Singleton
     fun provideLocationsRepository(
-        rickAndMortyApi: RickAndMortyApi, app: Application
+        rickAndMortyApi: RickAndMortyApi
     ): LocationsRepository {
         return LocationsRepositoryImplementation(
             rickAndMortyApi = rickAndMortyApi

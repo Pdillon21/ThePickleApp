@@ -30,7 +30,7 @@ fun MainListView(
     ) {
         items(listState.size) { i ->
             val item = listState[i]
-            if (i >= listState.size - 1 && !isPaging && !noMoreResults){
+            if (i >= listState.size - 1 && !isPaging && !noMoreResults) {
                 endWasReached()
             }
             when (item) {

@@ -24,8 +24,12 @@ object Paginator {
             }
         }
         data.getResponseResults()?.let { newResults ->
-            results = if (results[results.size-1]::class == newResults[0]::class){
-                results + newResults
+            results = if (results.isNotEmpty()) {
+                if (results[results.size - 1]::class == newResults[0]::class) {
+                    results + newResults
+                } else {
+                    newResults
+                }
             } else {
                 newResults
             }
@@ -36,7 +40,7 @@ object Paginator {
         if (currentQueryData == null) {
             currentQueryData = queryData
         }
-        if (currentQueryData != queryData){
+        if (currentQueryData != queryData) {
             clearResultsData()
             currentQueryData = queryData
         }
