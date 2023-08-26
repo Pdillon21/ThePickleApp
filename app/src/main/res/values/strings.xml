@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ThePickleApp</string>
+    <string name="base_error_title">Ups! Something went wrong!</string>
+    <string name="base_error_message">We couldn\'t perform this action for this universe.</string>
+    <string name="unknown_capitalized">Unknown</string>
+    <string name="appearance_single">appearance</string>
+    <string name="appearances_plural">appearances</string>
+    <string name="from">from</string>
+    <string name="comma_in">, in</string>
+    <string name="check_your_connection">Please check your connection</string>
+    <string name="status_capitalized">Status:</string>
+    <string name="SPACE">" "</string>
+    <string name="EMPTY_STRING" />
+    <string name="gender_legend_capitalized">Gender:</string>
+    <string name="species_name_legend_capitalized">"Species name: "</string>
+    <string name="character_type_legende_capitalized">"Character type: "</string>
+    <string name="hide_filters">Hide Filters</string>
+    <string name="show_filters">Show Filters</string>
+    <string name="location_type_legend_capitalyzed">"Location Type: "</string>
+    <string name="dimension_legend_capitalyzed">"Dimension: "</string>
+    <string name="aired_legend_capitalized">Aired:</string>
 </resources>

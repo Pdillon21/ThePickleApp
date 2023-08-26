@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.general.PickleChip
@@ -32,7 +33,11 @@ fun CharactersExtraFiltersContainer(
 ) {
     if (extraFiltersData is ExtraFiltersData.CharacterExtraFilters) {
         Column() {
-            Text(text = "Status: ${extraFiltersData.status ?: ""}")
+            Text(
+                text = stringResource(R.string.status_capitalized)
+                        + stringResource(R.string.SPACE)
+                        + (extraFiltersData.status ?: stringResource(R.string.EMPTY_STRING))
+            )
             FlowRow(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -45,7 +50,8 @@ fun CharactersExtraFiltersContainer(
                     text = CharacterStatus.alive,
                     colorPrimary = pickleAppColors().aliveAccent,
                     colorSecondary = pickleAppColors().onSurface,
-                    isSelected = (extraFiltersData.status ?: "") == CharacterStatus.alive
+                    isSelected = (extraFiltersData.status
+                        ?: stringResource(R.string.EMPTY_STRING)) == CharacterStatus.alive
                 ) {
                     if (extraFiltersData.status == CharacterStatus.alive) {
                         changeExtraFiltersData(extraFiltersData.changeStatus(newStatus = null))
@@ -83,7 +89,11 @@ fun CharactersExtraFiltersContainer(
                 }
             }
 
-            Text(text = "Gender: ${extraFiltersData.gender ?: ""}")
+            Text(
+                text = stringResource(R.string.gender_legend_capitalized)
+                        + stringResource(id = R.string.SPACE)
+                        + (extraFiltersData.gender ?: stringResource(id = R.string.EMPTY_STRING))
+            )
             FlowRow(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -148,15 +158,15 @@ fun CharactersExtraFiltersContainer(
                 }
             }
             HighlightPickleSearchBar(
-                legend = "Species name: ",
-                query = extraFiltersData.species ?: ""
+                legend = stringResource(R.string.species_name_legend_capitalized),
+                query = extraFiltersData.species ?: stringResource(id = R.string.EMPTY_STRING)
             ) { newSpeciesQuery ->
                 changeExtraFiltersData(extraFiltersData.changeSpecies(newSpecies = newSpeciesQuery.ifEmpty { null }))
             }
             Spacer(modifier = Modifier.height(8.dp))
             HighlightPickleSearchBar(
-                legend = "Character type: ",
-                query = extraFiltersData.type ?: ""
+                legend = stringResource(R.string.character_type_legende_capitalized),
+                query = extraFiltersData.type ?: stringResource(id = R.string.EMPTY_STRING)
             ) { newTypeQuery ->
                 changeExtraFiltersData(extraFiltersData.changeType(newType = newTypeQuery.ifEmpty { null }))
             }

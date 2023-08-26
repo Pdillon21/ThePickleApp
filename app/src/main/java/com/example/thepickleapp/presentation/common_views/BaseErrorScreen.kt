@@ -7,6 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.utils.ErrorData
 import com.example.thepickleapp.presentation.utils.ErrorUtils
 
@@ -26,11 +28,11 @@ fun BaseErrorScreen(
             //ToDo pasar strings a values
             Text(
                 text = errorData?.errorTitle
-                    ?: "Ups! Something went wrong!"
+                    ?: stringResource(R.string.base_error_title)
             )
             Text(
                 text = errorData?.errorMessage
-                    ?: "We couldn't perform this action for this universe."
+                    ?: stringResource(R.string.base_error_message)
             )
         }
     }

@@ -20,12 +20,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.thepickleapp.R
 import com.example.thepickleapp.data.dao.CharacterDao
 import com.example.thepickleapp.data.dao.character.LocationShortDao
 import com.example.thepickleapp.presentation.common_views.general.PickleImageView
@@ -49,7 +51,9 @@ fun CharacterColumnCell(singleItem: CharacterDao) {
             modifier = Modifier
                 .fillMaxWidth()
                 .offset(y = (-36).dp, x = 12.dp),
-            text = TextUtils.getInitialsAndNumbers(singleItem.name ?: "Unknown"),
+            text = TextUtils.getInitialsAndNumbers(
+                singleItem.name ?: stringResource(R.string.unknown_capitalized)
+            ),
             color = pickleAppColors().onSurface.copy(alpha = 0.1f),
             textAlign = TextAlign.End,
             fontWeight = FontWeight.Bold,
@@ -92,14 +96,14 @@ fun CharacterData(singleItem: CharacterDao) {
             modifier = Modifier.wrapContentSize(),
             color = pickleAppColors().genderlessAccent,
             textColor = pickleAppColors().onSurface,
-            text = singleItem.species ?: "Unknown"
+            text = singleItem.species ?: stringResource(R.string.unknown_capitalized)
         )
         Spacer(modifier = Modifier.height(6.dp))
-        CharacterName(singleItem.name ?: "Unknown")
+        CharacterName(singleItem.name ?: stringResource(R.string.unknown_capitalized))
         Spacer(modifier = Modifier.height(4.dp))
         CharacterLocationData(
-            locationFrom = singleItem.origin?.name ?: "Unknown",
-            locationIn = singleItem.location?.name ?: "Unknown"
+            locationFrom = singleItem.origin?.name ?: stringResource(R.string.unknown_capitalized),
+            locationIn = singleItem.location?.name ?: stringResource(R.string.unknown_capitalized)
         )
         Spacer(modifier = Modifier.height(16.dp))
         CharacterAppearances(singleItem.episode)
@@ -122,14 +126,16 @@ fun CharacterAppearances(episode: List<String>?) {
     Row() {
         val episodes = episode?.size
         Text(
-            text = episodes?.toString() ?: "Unknown",
+            text = episodes?.toString() ?: stringResource(R.string.unknown_capitalized),
             fontSize = 14.sp,
             color = pickleAppColors().onSurface,
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
-            text = if (episodes == 1) "appearance" else "appearances",
+            text =
+            if (episodes == 1) stringResource(R.string.appearance_single)
+            else stringResource(R.string.appearances_plural),
             fontSize = 14.sp,
             color = pickleAppColors().onSurface
         )
@@ -147,7 +153,7 @@ fun CharacterLocationData(locationFrom: String, locationIn: String) {
         horizontalArrangement = Arrangement.spacedBy(4.dp, alignment = Alignment.Start)
     ) {
         Text(
-            text = "from",
+            text = stringResource(R.string.from),
             fontSize = 14.sp,
             color = pickleAppColors().onSurface
         )
@@ -160,7 +166,7 @@ fun CharacterLocationData(locationFrom: String, locationIn: String) {
             textColor = pickleAppColors().onSurface
         )
         Text(
-            text = ", in",
+            text = stringResource(R.string.comma_in),
             fontSize = 14.sp,
             color = pickleAppColors().onSurface
         )

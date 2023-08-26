@@ -51,7 +51,7 @@ fun SearchIconButton(onIconClick: () -> Unit) {
     }) {
         Icon(
             painter = painterResource(id = R.drawable.baseline_search_24),
-            contentDescription = "Search Icon",
+            contentDescription = null,
             tint = pickleAppColors().onSurface
         )
     }

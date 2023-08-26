@@ -14,12 +14,14 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.thepickleapp.R
 import com.example.thepickleapp.data.dao.LocationDao
 import com.example.thepickleapp.presentation.common_views.general.DataPill
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
@@ -40,7 +42,9 @@ fun LocationColumnCell(item: LocationDao) {
             modifier = Modifier
                 .fillMaxWidth()
                 .offset(y = (-36).dp, x = (-10).dp),
-            text = TextUtils.getInitialsAndNumbers(item.name ?: "Unknown"),
+            text = TextUtils.getInitialsAndNumbers(
+                item.name ?: stringResource(id = R.string.unknown_capitalized)
+            ),
             color = pickleAppColors().onSurface.copy(alpha = 0.1f),
             textAlign = TextAlign.End,
             fontWeight = FontWeight.Bold,
@@ -65,13 +69,13 @@ fun LocationColumnCell(item: LocationDao) {
 @Composable
 fun ResidentsData(residents: List<String>?) {
     val residenstsString = if (residents.isNullOrEmpty()) {
-        "Unknown"
+        stringResource(id = R.string.unknown_capitalized)
     } else {
         residents.size.toString()
     }
     Row {
         Text(
-            text = "Dimension:",
+            text = stringResource(id = R.string.dimension_legend_capitalyzed),
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
             color = pickleAppColors().onSurface
@@ -89,14 +93,14 @@ fun ResidentsData(residents: List<String>?) {
 fun DimensionData(dimension: String?) {
     Row {
         Text(
-            text = "Dimension:",
+            text = stringResource(id = R.string.dimension_legend_capitalyzed),
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
             color = pickleAppColors().onSurface
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
-            text = dimension ?: "Unknown",
+            text = dimension ?: stringResource(id = R.string.unknown_capitalized),
             fontSize = 12.sp,
             color = pickleAppColors().onSurface
         )
@@ -106,7 +110,7 @@ fun DimensionData(dimension: String?) {
 @Composable
 fun LocationName(name: String?) {
     Text(
-        text = name ?: "Unknown",
+        text = name ?: stringResource(id = R.string.unknown_capitalized),
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         color = pickleAppColors().onSurface,
@@ -118,7 +122,7 @@ fun LocationName(name: String?) {
 fun LocationTypePill(type: String?) {
     DataPill(
         modifier = Modifier.wrapContentSize(),
-        text = type ?: "Unknown",
+        text = type ?: stringResource(id = R.string.unknown_capitalized),
         color = pickleAppColors().genderlessAccent,
         textColor = pickleAppColors().onSurface
     )
@@ -129,7 +133,7 @@ fun LocationTypePill(type: String?) {
 fun PreviewLocationColumnCell() {
     LocationColumnCell(
         item = LocationDao(
-            locationId  = 1,
+            locationId = 1,
             locationName = "Earth",
             type = "Planet",
             dimension = "Dimension C-137",

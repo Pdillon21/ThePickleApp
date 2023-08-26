@@ -1,5 +1,6 @@
 package com.example.thepickleapp.data.repo
 
+import com.example.thepickleapp.R
 import com.example.thepickleapp.data.dao.character.CharacterResponseContainer
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
 import com.example.thepickleapp.data.result_wrapper.PickleRequestResult
@@ -17,7 +18,7 @@ class CharacterRepositoryImplementation(
         species: String?,
         type: String?,
         gender: String?,
-        page : Int
+        page: Int
     ): PickleRequestResult<CharacterResponseContainer> {
         return try {
             val request = rickAndMortyApi.getCharacters(
@@ -36,7 +37,7 @@ class CharacterRepositoryImplementation(
                 )
             }
         } catch (e: IOException) {
-            PickleRequestResult.connectionError(errorMessage = "Please check your connection")
+            PickleRequestResult.connectionError(errorMessage = e.message)
         } catch (e: Exception) {
             PickleRequestResult.serverError(errorMessage = e.message)
         }

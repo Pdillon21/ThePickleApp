@@ -16,12 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.thepickleapp.R
 import com.example.thepickleapp.data.dao.EpisodeDao
 import com.example.thepickleapp.presentation.common_views.general.DataPill
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
@@ -71,14 +73,14 @@ fun EpisodeColumnCell(item: EpisodeDao) {
 fun AiredData(airDate: String?) {
     Row {
         Text(
-            text = "Aired:",
+            text = stringResource(R.string.aired_legend_capitalized),
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
             color = pickleAppColors().onSurface
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
-            text = airDate ?: "Unknown",
+            text = airDate ?: stringResource(id = R.string.unknown_capitalized),
             fontSize = 12.sp,
             color = pickleAppColors().onSurface
         )
@@ -88,8 +90,9 @@ fun AiredData(airDate: String?) {
 @Composable
 fun EpisodeData(episode: String?) {
     val listOfData: List<String> = if (episode.isNullOrEmpty()) {
-        listOf("Unknown")
+        listOf(stringResource(id = R.string.unknown_capitalized))
     } else {
+        //ToDo pass this logic to a single functin in TextUtils
         TextUtils.getEpisodeDataInitials(episode)
             .replace("E", "splitEpisode ")
             .replace("S", "Season ")
@@ -127,7 +130,7 @@ fun EpisodeData(episode: String?) {
 @Composable
 fun EpisodeName(name: String?) {
     Text(
-        text = name ?: "Unknown",
+        text = name ?: stringResource(id = R.string.unknown_capitalized),
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         color = pickleAppColors().onSurface,

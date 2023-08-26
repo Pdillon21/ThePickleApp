@@ -20,7 +20,7 @@ class LocationsRepositoryImplementation(
         return try {
             val request = rickAndMortyApi.getLocations(
                 name = name,
-                type =type,
+                type = type,
                 dimension = dimension,
                 page = page
             )
@@ -32,7 +32,7 @@ class LocationsRepositoryImplementation(
                 )
             }
         } catch (e: IOException) {
-            PickleRequestResult.connectionError(errorMessage = "Please check your connection")
+            PickleRequestResult.connectionError(errorMessage = e.message)
         } catch (e: Exception) {
             PickleRequestResult.serverError(errorMessage = e.message)
         }

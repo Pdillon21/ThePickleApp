@@ -24,6 +24,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.general.ElevatedButton
@@ -178,14 +179,22 @@ fun ExtraFiltersButton(
                 )
             ) {
                 Text(
-                    text = if (extraFiltersState.isExpanded) "Hide Filters" else "Show Filters",
+                    text = if (extraFiltersState.isExpanded)
+                        stringResource(R.string.hide_filters)
+                    else
+                        stringResource(R.string.show_filters),
                     color = pickleAppColors().onSurface
                 )
                 Icon(
                     modifier = Modifier
                         .width(24.dp)
                         .aspectRatio(1f),
-                    painter = painterResource(id = if (extraFiltersState.isExpanded) R.drawable.baseline_keyboard_arrow_up_24 else R.drawable.baseline_keyboard_arrow_down_24),
+                    painter = painterResource(
+                        id = if (extraFiltersState.isExpanded)
+                            R.drawable.baseline_keyboard_arrow_up_24
+                        else
+                            R.drawable.baseline_keyboard_arrow_down_24
+                    ),
                     contentDescription = null,
                     tint = pickleAppColors().onSurface
                 )
