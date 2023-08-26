@@ -26,6 +26,7 @@ import com.example.thepickleapp.data.dao.EpisodeDao
 import com.example.thepickleapp.presentation.common_views.general.DataPill
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
 import com.example.thepickleapp.presentation.common_views.utils.TextUtils
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun EpisodeColumnCell(item: EpisodeDao) {
@@ -33,7 +34,7 @@ fun EpisodeColumnCell(item: EpisodeDao) {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        color = Color(0xffF4C9FF),
+        color = pickleAppColors().episodesAccent,
         bottomElevation = 2.dp,
         sideElevation = 2.dp
     ) {
@@ -47,7 +48,7 @@ fun EpisodeColumnCell(item: EpisodeDao) {
                 .fillMaxWidth()
                 .offset(y = (-36).dp, x = (-10).dp),
             text = episodeDataInitials,
-            color = Color.Black.copy(alpha = 0.1f),
+            color = pickleAppColors().onSurface.copy(alpha = 0.1f),
             textAlign = TextAlign.End,
             fontWeight = FontWeight.Bold,
             fontSize = 96.sp,
@@ -73,13 +74,13 @@ fun AiredData(airDate: String?) {
             text = "Aired:",
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
-            color = Color.Black
+            color = pickleAppColors().onSurface
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = airDate ?: "Unknown",
             fontSize = 12.sp,
-            color = Color.Black
+            color = pickleAppColors().onSurface
         )
     }
 }
@@ -106,17 +107,17 @@ fun EpisodeData(episode: String?) {
                 listOfData.size != 1
             ) {
                 if (data.contains("Season")) {
-                    Color(0xffFFEEEE)
+                    pickleAppColors().deadAccent
                 } else {
-                    Color(0xffFFFCEE)
+                    pickleAppColors().onSurface
                 }
             } else {
-                Color(0xFFEFEFEF)
+                pickleAppColors().unknownAccent
             }
             DataPill(
                 modifier = Modifier.wrapContentSize(),
                 color = color,
-                textColor = Color.Black,
+                textColor = pickleAppColors().onSurface,
                 text = data
             )
         }
@@ -129,7 +130,7 @@ fun EpisodeName(name: String?) {
         text = name ?: "Unknown",
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
-        color = Color.Black,
+        color = pickleAppColors().onSurface,
         maxLines = 3
     )
 }

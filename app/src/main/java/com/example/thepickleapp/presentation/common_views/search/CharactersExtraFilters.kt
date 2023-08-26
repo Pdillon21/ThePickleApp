@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.general.PickleChip
@@ -23,6 +22,7 @@ import com.example.thepickleapp.presentation.main_screen.search.state.changeStat
 import com.example.thepickleapp.presentation.main_screen.search.state.changeType
 import com.example.thepickleapp.presentation.main_screen.search.utils.CharacterGender
 import com.example.thepickleapp.presentation.main_screen.search.utils.CharacterStatus
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -43,8 +43,8 @@ fun CharactersExtraFiltersContainer(
                     modifier = Modifier.padding(bottom = 8.dp),
                     iconResource = R.drawable.sentiment_very_satisfied,
                     text = CharacterStatus.alive,
-                    colorPrimary = Color(0xFFEFFFEE),
-                    colorSecondary = Color.Black,
+                    colorPrimary = pickleAppColors().aliveAccent,
+                    colorSecondary = pickleAppColors().onSurface,
                     isSelected = (extraFiltersData.status ?: "") == CharacterStatus.alive
                 ) {
                     if (extraFiltersData.status == CharacterStatus.alive) {
@@ -58,8 +58,8 @@ fun CharactersExtraFiltersContainer(
                     iconResource = R.drawable.sentiment_very_dissatisfied,
                     text = CharacterStatus.dead,
                     isSelected = extraFiltersData.status == CharacterStatus.dead,
-                    colorPrimary = Color(0xFFFFEEEE),
-                    colorSecondary = Color.Black,
+                    colorPrimary = pickleAppColors().deadAccent,
+                    colorSecondary = pickleAppColors().onSurface,
                 ) {
                     if (extraFiltersData.status == CharacterStatus.dead) {
                         changeExtraFiltersData(extraFiltersData.changeStatus(newStatus = null))
@@ -72,8 +72,8 @@ fun CharactersExtraFiltersContainer(
                     iconResource = R.drawable.sentiment_neutral,
                     text = CharacterStatus.unknown,
                     isSelected = extraFiltersData.status == CharacterStatus.unknown,
-                    colorPrimary = Color(0xFFEFEFEF),
-                    colorSecondary = Color.Black
+                    colorPrimary = pickleAppColors().unknownAccent,
+                    colorSecondary = pickleAppColors().onSurface
                 ) {
                     if (extraFiltersData.status == CharacterStatus.unknown) {
                         changeExtraFiltersData(extraFiltersData.changeStatus(newStatus = null))
@@ -95,8 +95,8 @@ fun CharactersExtraFiltersContainer(
                     iconResource = R.drawable.man,
                     text = CharacterGender.male,
                     isSelected = extraFiltersData.gender == CharacterGender.male,
-                    colorPrimary = Color(0xFFEEF0FF),
-                    colorSecondary = Color.Black
+                    colorPrimary = pickleAppColors().maleAccent,
+                    colorSecondary = pickleAppColors().onSurface
                 ) {
                     if (extraFiltersData.gender == CharacterGender.male) {
                         changeExtraFiltersData(extraFiltersData.changeGender(newGender = null))
@@ -109,8 +109,8 @@ fun CharactersExtraFiltersContainer(
                     iconResource = R.drawable.woman,
                     text = CharacterGender.female,
                     isSelected = extraFiltersData.gender == CharacterGender.female,
-                    colorPrimary = Color(0xFFFFEEFD),
-                    colorSecondary = Color.Black
+                    colorPrimary = pickleAppColors().femaleAccent,
+                    colorSecondary = pickleAppColors().onSurface
                 ) {
                     if (extraFiltersData.gender == CharacterGender.female) {
                         changeExtraFiltersData(extraFiltersData.changeGender(newGender = null))
@@ -123,8 +123,8 @@ fun CharactersExtraFiltersContainer(
                     iconResource = R.drawable.cancel_presentation,
                     text = CharacterGender.genderless,
                     isSelected = extraFiltersData.gender == CharacterGender.genderless,
-                    colorPrimary = Color(0xFFF7EEFF),
-                    colorSecondary = Color.Black
+                    colorPrimary = pickleAppColors().genderlessAccent,
+                    colorSecondary = pickleAppColors().onSurface
                 ) {
                     if (extraFiltersData.gender == CharacterGender.genderless) {
                         changeExtraFiltersData(extraFiltersData.changeGender(newGender = null))
@@ -137,8 +137,8 @@ fun CharactersExtraFiltersContainer(
                     iconResource = R.drawable.sentiment_neutral,
                     text = CharacterGender.unknown,
                     isSelected = extraFiltersData.gender == CharacterGender.unknown,
-                    colorPrimary = Color(0xFFEFEFEF),
-                    colorSecondary = Color.Black
+                    colorPrimary = pickleAppColors().unknownAccent,
+                    colorSecondary = pickleAppColors().onSurface
                 ) {
                     if (extraFiltersData.gender == CharacterGender.unknown) {
                         changeExtraFiltersData(extraFiltersData.changeGender(newGender = null))

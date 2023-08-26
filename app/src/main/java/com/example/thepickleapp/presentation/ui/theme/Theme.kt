@@ -16,15 +16,29 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = TeaGreen,
+    onPrimary = CharlestonGreen,
+    secondary = Water,
+    onSecondary = CharlestonGreen,
+    tertiary = PalePurple,
+    onTertiary = CharlestonGreen,
+    surface = CharlestonGreen,
+    onSurface = FloralWhite,
+    background = CharlestonGreen,
+    onBackground = FloralWhite
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = TeaGreen,
+    onPrimary = CharlestonGreen,
+    secondary = Water,
+    onSecondary = CharlestonGreen,
+    tertiary = PalePurple,
+    onTertiary = CharlestonGreen,
+    surface = FloralWhite,
+    onSurface = CharlestonGreen,
+    background = FloralWhite,
+    onBackground = CharlestonGreen
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -44,6 +58,7 @@ fun ThePickleAppTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    /*
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
@@ -53,11 +68,14 @@ fun ThePickleAppTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+
+     */
+    val colorScheme = LightColorScheme
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
+            window.statusBarColor = colorScheme.surface.toArgb()
             WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
         }
     }

@@ -32,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun ElevatedButton(
@@ -39,7 +40,7 @@ fun ElevatedButton(
     cornerRadius: Dp = 10.dp,
     sideElevation: Dp = 0.dp,
     bottomElevation: Dp = 0.dp,
-    color: Color = Color.Blue,
+    color: Color = pickleAppColors().buttonAccent,
     clickable: Boolean,
     content: @Composable () -> Unit,
     onClick: () -> Unit
@@ -55,7 +56,7 @@ fun ElevatedButton(
             .defaultMinSize(minWidth = 1.dp, minHeight = 1.dp)
             .border(
                 width = 1.dp,
-                color = Color.Black,
+                color = pickleAppColors().onSurface,
                 shape = shape
             )
             .drawBehind {
@@ -64,7 +65,7 @@ fun ElevatedButton(
                     || (bottomElevation > 0.dp && sideElevation >= 0.dp)
                 ) {
                     drawRoundRect(
-                        color = Color.Black,
+                        color = pickleAppColors().onSurface,
                         topLeft = Offset(
                             x = sideElevationFloat,
                             y = bottomElevationFloat
@@ -121,7 +122,7 @@ fun ElevatedButtonPreview() {
                             .aspectRatio(1f),
                         painter = painterResource(id = R.drawable.baseline_keyboard_arrow_down_24),
                         contentDescription = null,
-                        tint = Color.Black
+                        tint = pickleAppColors().onSurface
                     )
                 }
             }
@@ -140,7 +141,7 @@ fun ElevatedButtonPreview() {
                         .aspectRatio(1f),
                     painter = painterResource(id = R.drawable.baseline_keyboard_arrow_up_24),
                     contentDescription = null,
-                    tint = Color.Black
+                    tint = pickleAppColors().onSurface
                 )
             }
         ) {

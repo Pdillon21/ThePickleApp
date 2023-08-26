@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.main_screen.search.utils.CharacterStatus
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun PickleChip(
@@ -41,8 +42,8 @@ fun PickleChip(
     isSelected: Boolean,
     cornerRadius: Dp = 10.dp,
     fontSize: TextUnit = 14.sp,
-    colorPrimary: Color = Color(0xffF7EEFF),
-    colorSecondary: Color = Color.Black,
+    colorPrimary: Color = pickleAppColors().genderlessAccent,
+    colorSecondary: Color = pickleAppColors().onSurface,
     clickable: Boolean = true,
     onClick: () -> Unit
 ) {

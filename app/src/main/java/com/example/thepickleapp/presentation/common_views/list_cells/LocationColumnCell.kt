@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -25,6 +24,7 @@ import com.example.thepickleapp.data.dao.LocationDao
 import com.example.thepickleapp.presentation.common_views.general.DataPill
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
 import com.example.thepickleapp.presentation.common_views.utils.TextUtils
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun LocationColumnCell(item: LocationDao) {
@@ -32,7 +32,7 @@ fun LocationColumnCell(item: LocationDao) {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        color = Color(0xffC9FCFF),
+        color = pickleAppColors().locationsAccent,
         bottomElevation = 2.dp,
         sideElevation = 2.dp
     ) {
@@ -41,7 +41,7 @@ fun LocationColumnCell(item: LocationDao) {
                 .fillMaxWidth()
                 .offset(y = (-36).dp, x = (-10).dp),
             text = TextUtils.getInitialsAndNumbers(item.name ?: "Unknown"),
-            color = Color.Black.copy(alpha = 0.1f),
+            color = pickleAppColors().onSurface.copy(alpha = 0.1f),
             textAlign = TextAlign.End,
             fontWeight = FontWeight.Bold,
             fontSize = 96.sp,
@@ -74,13 +74,13 @@ fun ResidentsData(residents: List<String>?) {
             text = "Dimension:",
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
-            color = Color.Black
+            color = pickleAppColors().onSurface
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = residenstsString,
             fontSize = 12.sp,
-            color = Color.Black
+            color = pickleAppColors().onSurface
         )
     }
 }
@@ -92,13 +92,13 @@ fun DimensionData(dimension: String?) {
             text = "Dimension:",
             fontWeight = FontWeight.Bold,
             fontSize = 12.sp,
-            color = Color.Black
+            color = pickleAppColors().onSurface
         )
         Spacer(modifier = Modifier.width(2.dp))
         Text(
             text = dimension ?: "Unknown",
             fontSize = 12.sp,
-            color = Color.Black
+            color = pickleAppColors().onSurface
         )
     }
 }
@@ -109,7 +109,7 @@ fun LocationName(name: String?) {
         text = name ?: "Unknown",
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
-        color = Color.Black,
+        color = pickleAppColors().onSurface,
         maxLines = 3
     )
 }
@@ -119,8 +119,8 @@ fun LocationTypePill(type: String?) {
     DataPill(
         modifier = Modifier.wrapContentSize(),
         text = type ?: "Unknown",
-        color = Color(0xffF7EEFF),
-        textColor = Color.Black
+        color = pickleAppColors().genderlessAccent,
+        textColor = pickleAppColors().onSurface
     )
 }
 

@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -22,6 +21,7 @@ import coil.request.ImageRequest
 import coil.size.Size
 import com.example.thepickleapp.presentation.common_views.BaseErrorScreen
 import com.example.thepickleapp.presentation.common_views.EmptyLoadingScreen
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun PickleImageView(
@@ -42,7 +42,7 @@ fun PickleImageView(
         modifier = modifier
             .border(
                 width = 1.dp,
-                color = Color.Black,
+                color = pickleAppColors().onSurface,
                 shape = shape
             )
             .clip(shape)

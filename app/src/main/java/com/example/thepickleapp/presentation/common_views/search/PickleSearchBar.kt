@@ -1,6 +1,5 @@
 package com.example.thepickleapp.presentation.common_views.search
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,7 +8,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -21,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun PickleSearchBar(modifier: Modifier, onSearchClicked: (String) -> Unit) {
@@ -52,7 +51,8 @@ fun SearchIconButton(onIconClick: () -> Unit) {
     }) {
         Icon(
             painter = painterResource(id = R.drawable.baseline_search_24),
-            contentDescription = "Search Icon"
+            contentDescription = "Search Icon",
+            tint = pickleAppColors().onSurface
         )
     }
 }

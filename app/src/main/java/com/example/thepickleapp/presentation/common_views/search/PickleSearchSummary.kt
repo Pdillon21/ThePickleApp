@@ -11,6 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
 import com.example.thepickleapp.presentation.main_screen.search.utils.SearchUtils
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun PickleSearchSummary(queryState: QueryState) {
@@ -20,6 +21,10 @@ fun PickleSearchSummary(queryState: QueryState) {
             .padding(horizontal = 8.dp),
         contentAlignment = Alignment.CenterEnd
     ) {
-        Text(text = SearchUtils.getSearchSummaryByState(queryState), textAlign = TextAlign.End)
+        Text(
+            text = SearchUtils.getSearchSummaryByState(queryState),
+            textAlign = TextAlign.End,
+            color = pickleAppColors().onSurface
+        )
     }
 }

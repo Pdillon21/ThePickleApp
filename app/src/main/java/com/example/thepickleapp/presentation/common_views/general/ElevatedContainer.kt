@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -27,11 +28,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun ElevatedContainer(
     modifier: Modifier,
-    color: Color = Color.Blue,
+    color: Color = pickleAppColors().femaleAccent,
     sideElevation: Dp = 0.dp,
     bottomElevation: Dp = 0.dp,
     cornerRadius: Dp = 10.dp,
@@ -42,12 +44,14 @@ fun ElevatedContainer(
     val cornerRadiusFloat: Float = (cornerRadius * density).value
     val sideElevationFloat = (sideElevation * density).value
     val bottomElevationFloat = (bottomElevation * density).value
+    val elevationColor = MaterialTheme.colorScheme.onSurface
+
     Box(
         modifier = modifier
             .defaultMinSize(minWidth = 1.dp, minHeight = 1.dp)
             .border(
                 width = 1.dp,
-                color = Color.Black,
+                color = MaterialTheme.colorScheme.onSurface,
                 shape = shape
             )
             .drawBehind {
@@ -56,23 +60,11 @@ fun ElevatedContainer(
                     || (bottomElevation > 0.dp && sideElevation >= 0.dp)
                 ) {
                     drawRoundRect(
-                        color = Color.Black,
+                        color = elevationColor,
                         topLeft = Offset(
                             x = sideElevationFloat,
                             y = bottomElevationFloat
                         ),
-                        size = Size(
-                            width = size.width,
-                            height = size.height
-                        ),
-                        cornerRadius = CornerRadius(
-                            x = cornerRadiusFloat,
-                            y = cornerRadiusFloat
-                        )
-                    )
-                    drawRoundRect(
-                        color = color.copy(alpha = 1f),
-                        topLeft = Offset.Zero,
                         size = Size(
                             width = size.width,
                             height = size.height
@@ -113,7 +105,7 @@ fun ElevetadeContainerPreview() {
                     .width(200.dp)
                     .height(100.dp)
                     .padding(10.dp),
-                color = Color(0xffEEFAFF),
+                color = pickleAppColors().extraFiltersSurface,
                 bottomElevation = 4.dp,
                 sideElevation = 2.dp
             ) {
@@ -129,7 +121,7 @@ fun ElevetadeContainerPreview() {
                     .width(200.dp)
                     .height(100.dp)
                     .padding(10.dp),
-                color = Color(0xffEEFAFF),
+                color = pickleAppColors().extraFiltersSurface,
                 bottomElevation = 8.dp,
                 sideElevation = 16.dp
             ) {
@@ -144,7 +136,7 @@ fun ElevetadeContainerPreview() {
         ElevatedContainer(
             modifier = Modifier
                 .wrapContentSize(),
-            color = Color(0xffFFEEFD),
+            color = pickleAppColors().typeFilterSurface,
             sideElevation = 2.dp,
             bottomElevation = 2.dp
         ) {

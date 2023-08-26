@@ -15,12 +15,13 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun DataPill(
     modifier: Modifier,
-    color: Color = Color.Blue,
-    textColor : Color = Color.Black,
+    color: Color = pickleAppColors().femaleAccent,
+    textColor : Color = pickleAppColors().onSurface,
     cornerRadius: Dp = 10.dp,
     text: String
 ) {
@@ -31,7 +32,7 @@ fun DataPill(
             .defaultMinSize(minWidth = 1.dp, minHeight = 1.dp)
             .border(
                 width = 1.dp,
-                color = Color.Black,
+                color = pickleAppColors().onSurface,
                 shape = shape
             )
             .clip(shape)

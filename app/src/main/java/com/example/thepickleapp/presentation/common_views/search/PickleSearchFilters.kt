@@ -23,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
@@ -38,6 +37,7 @@ import com.example.thepickleapp.presentation.main_screen.search.state.changeQuer
 import com.example.thepickleapp.presentation.main_screen.search.state.expandExtraFilters
 import com.example.thepickleapp.presentation.main_screen.search.state.hideExtraFilters
 import com.example.thepickleapp.presentation.main_screen.search.utils.SearchType
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable
 fun PickleSearchFilters(
@@ -60,7 +60,7 @@ fun PickleSearchFilters(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight(),
-                color = Color(0xFFEEFAFF),
+                color = pickleAppColors().extraFiltersSurface,
                 sideElevation = 2.dp,
                 bottomElevation = 2.dp,
             ) {
@@ -136,7 +136,7 @@ fun ExtraFiltersContainer(
 fun HideExtraFiltersButton(hideExtraFilters: () -> Unit) {
     ElevatedButton(
         modifier = Modifier.padding(horizontal = 4.dp),
-        color = Color(0xFFD7FFA5),
+        color = pickleAppColors().buttonAccent,
         bottomElevation = 2.dp,
         sideElevation = 2.dp,
         clickable = true,
@@ -148,7 +148,7 @@ fun HideExtraFiltersButton(hideExtraFilters: () -> Unit) {
                         .aspectRatio(1f),
                     painter = painterResource(id = R.drawable.baseline_keyboard_arrow_up_24),
                     contentDescription = null,
-                    tint = Color.Black
+                    tint = pickleAppColors().onSurface
                 )
             }
         }
@@ -164,7 +164,7 @@ fun ExtraFiltersButton(
     hideExtraFilters: () -> Unit
 ) {
     ElevatedButton(
-        color = Color(0xFFD7FFA5),
+        color = pickleAppColors().buttonAccent,
         bottomElevation = 2.dp,
         sideElevation = 2.dp,
         clickable = true,
@@ -179,7 +179,7 @@ fun ExtraFiltersButton(
             ) {
                 Text(
                     text = if (extraFiltersState.isExpanded) "Hide Filters" else "Show Filters",
-                    color = Color.Black
+                    color = pickleAppColors().onSurface
                 )
                 Icon(
                     modifier = Modifier
@@ -187,7 +187,7 @@ fun ExtraFiltersButton(
                         .aspectRatio(1f),
                     painter = painterResource(id = if (extraFiltersState.isExpanded) R.drawable.baseline_keyboard_arrow_up_24 else R.drawable.baseline_keyboard_arrow_down_24),
                     contentDescription = null,
-                    tint = Color.Black
+                    tint = pickleAppColors().onSurface
                 )
             }
         }
@@ -206,7 +206,7 @@ fun SearchTypeFilter(searchTypeFilter: String, typeSelected: (String) -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight(),
-        color = Color(0xFFFFEEFD),
+        color = pickleAppColors().typeFilterSurface,
         sideElevation = 2.dp,
         bottomElevation = 2.dp,
     ) {
@@ -233,7 +233,7 @@ fun PickleSearchTypeChipGroup(initialType: String, typeSelected: (String) -> Uni
         PickleChip(
             iconResource = R.drawable.baseline_face_24,
             text = SearchType.characters,
-            colorPrimary = Color(0xFFCDFFC9),
+            colorPrimary = pickleAppColors().charactersAccent,
             isSelected = selectedType == SearchType.characters
         ) {
             selectedType = SearchType.characters
@@ -242,7 +242,7 @@ fun PickleSearchTypeChipGroup(initialType: String, typeSelected: (String) -> Uni
         PickleChip(
             iconResource = R.drawable.baseline_location_on_24,
             text = SearchType.locations,
-            colorPrimary = Color(0xFFC9FCFF),
+            colorPrimary = pickleAppColors().locationsAccent,
             isSelected = selectedType == SearchType.locations
         ) {
             selectedType = SearchType.locations
@@ -251,7 +251,7 @@ fun PickleSearchTypeChipGroup(initialType: String, typeSelected: (String) -> Uni
         PickleChip(
             iconResource = R.drawable.baseline_video_library_24,
             text = SearchType.episodes,
-            colorPrimary = Color(0xFFF4C9FF),
+            colorPrimary = pickleAppColors().episodesAccent,
             isSelected = selectedType == SearchType.episodes
         ) {
             selectedType = SearchType.episodes

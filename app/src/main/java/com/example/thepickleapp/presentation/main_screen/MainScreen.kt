@@ -21,7 +21,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.thepickleapp.presentation.common_views.BaseErrorScreen
@@ -32,6 +31,7 @@ import com.example.thepickleapp.presentation.common_views.search.PickleSearchSum
 import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
 import com.example.thepickleapp.presentation.main_screen.search.state.changeQueryInput
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
+import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -39,21 +39,15 @@ fun MainScreen(
     viewModel: MainViewModel = hiltViewModel()
 ) {
     val resultState by viewModel.uiState
-    val backgroundColor = Color(0xffFFFCEE)
     Surface(
         modifier = Modifier
-            .fillMaxSize(),
-        color = backgroundColor
+            .fillMaxSize()
     ) {
         Scaffold(
             topBar = {
-                Column(
-                    modifier = Modifier.background(backgroundColor)
-                ) {
-                    GetSearchToolsView() { newQueryData ->
-                        viewModel.setQueryData(newQueryData)
-                        viewModel.query()
-                    }
+                SearchContainer() { newQueryData ->
+                    viewModel.setQueryData(newQueryData)
+                    viewModel.query()
                 }
             }
         ) { padding ->
@@ -65,7 +59,7 @@ fun MainScreen(
 }
 
 @Composable
-fun GetSearchToolsView(
+fun SearchContainer(
     newQuery: (QueryState) -> Unit
 ) {
     var queryState by remember {
@@ -88,7 +82,7 @@ fun GetSearchToolsView(
                 .padding(8.dp),
             sideElevation = 2.dp,
             bottomElevation = 2.dp,
-            color = Color(0xffFFEEFD)
+            color = pickleAppColors().searchBarSurface
         ) {
             PickleSearchBar(
                 modifier = Modifier
@@ -118,7 +112,10 @@ fun GetSearchToolsView(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(4.dp)
-                .background(Color.Black)
+                .background(
+                    pickleAppColors()
+                        .onSurface
+                )
         )
     }
 }
@@ -129,12 +126,10 @@ fun GetResultViewByState(
     padding: PaddingValues,
     listEndReached: () -> Unit
 ) {
-    val backgroundColor = Color(0xffFFFCEE)
     Box(
         modifier = Modifier
             .fillMaxSize()
             .padding(padding)
-            .background(backgroundColor)
     ) {
         when (screenState) {
             is MainScreenUiState.Loading -> {
