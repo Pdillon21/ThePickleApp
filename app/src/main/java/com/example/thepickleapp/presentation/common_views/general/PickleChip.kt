@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.thepickleapp.R
-import com.example.thepickleapp.presentation.main_screen.search.utils.CharacterStatus
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.CharacterStatus
 import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable

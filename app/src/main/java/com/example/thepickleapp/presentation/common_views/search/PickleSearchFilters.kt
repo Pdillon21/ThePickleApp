@@ -30,14 +30,14 @@ import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.general.ElevatedButton
 import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
 import com.example.thepickleapp.presentation.common_views.general.PickleChip
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersState
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
-import com.example.thepickleapp.presentation.main_screen.search.state.changeExtraFilterData
-import com.example.thepickleapp.presentation.main_screen.search.state.changeQueryType
-import com.example.thepickleapp.presentation.main_screen.search.state.expandExtraFilters
-import com.example.thepickleapp.presentation.main_screen.search.state.hideExtraFilters
-import com.example.thepickleapp.presentation.main_screen.search.utils.SearchType
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersState
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeExtraFilterData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeQueryType
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.expandExtraFilters
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.hideExtraFilters
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.SearchType
 import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable

@@ -9,8 +9,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
-import com.example.thepickleapp.presentation.main_screen.search.utils.SearchUtils
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.SearchUtils
 import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @Composable

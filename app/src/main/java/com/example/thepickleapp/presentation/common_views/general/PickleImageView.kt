@@ -6,6 +6,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,7 +20,6 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import coil.size.Size
-import com.example.thepickleapp.presentation.common_views.BaseErrorScreen
 import com.example.thepickleapp.presentation.common_views.EmptyLoadingScreen
 import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
@@ -54,7 +54,7 @@ fun PickleImageView(
             }
 
             is AsyncImagePainter.State.Error -> {
-                BaseErrorScreen(modifier = Modifier.fillMaxSize())
+                Text(text = "Loding Image Error")
             }
 
             is AsyncImagePainter.State.Loading -> {
@@ -62,7 +62,7 @@ fun PickleImageView(
             }
 
             is AsyncImagePainter.State.Empty -> {
-                BaseErrorScreen()
+                Text(text = "Loding Image Error")
             }
         }
     }

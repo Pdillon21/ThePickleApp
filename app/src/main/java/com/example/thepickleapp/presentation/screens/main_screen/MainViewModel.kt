@@ -1,4 +1,4 @@
-package com.example.thepickleapp.presentation.main_screen
+package com.example.thepickleapp.presentation.screens.main_screen
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
@@ -8,8 +8,8 @@ import com.example.thepickleapp.di.IoDispatcher
 import com.example.thepickleapp.domain.use_cases.GetCharactersUseCase
 import com.example.thepickleapp.domain.use_cases.GetEpisodesUseCase
 import com.example.thepickleapp.domain.use_cases.GetLocationsUseCase
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
-import com.example.thepickleapp.presentation.main_screen.search.utils.SearchType
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.SearchType
 import com.example.thepickleapp.presentation.utils.ErrorUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
@@ -35,7 +35,7 @@ class MainViewModel @Inject constructor(
     private val _query = mutableStateOf(QueryState.getInitialQueryState())
     val query: State<QueryState> = _query
 
-    private val coroutineExceptionHandler = CoroutineExceptionHandler { a, b ->
+    private val coroutineExceptionHandler = CoroutineExceptionHandler { _, _ ->
         asignBasicError()
     }
 

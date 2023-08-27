@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
-import com.example.thepickleapp.presentation.main_screen.search.state.changeDimension
-import com.example.thepickleapp.presentation.main_screen.search.state.changeType
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeDimension
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeType
 
 @Composable
 fun LocationExtraFiltersContainer(
