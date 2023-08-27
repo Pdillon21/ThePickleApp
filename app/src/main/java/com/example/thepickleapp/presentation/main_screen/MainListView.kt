@@ -12,6 +12,7 @@ import com.example.thepickleapp.data.dao.CharacterDao
 import com.example.thepickleapp.data.dao.EpisodeDao
 import com.example.thepickleapp.data.dao.LocationDao
 import com.example.thepickleapp.data.dao.PickleResultDaoBase
+import com.example.thepickleapp.presentation.common_views.general.EndOfListView
 import com.example.thepickleapp.presentation.common_views.list_cells.CharacterColumnCell
 import com.example.thepickleapp.presentation.common_views.list_cells.EpisodeColumnCell
 import com.example.thepickleapp.presentation.common_views.list_cells.LocationColumnCell
@@ -52,15 +53,10 @@ fun MainListView(
                 PagingCell()
             }
             if (noMoreResults) {
-                EndOfListIndicator()
+                EndOfListView()
             }
         }
     }
-}
-
-@Composable
-fun EndOfListIndicator() {
-    Text(text = "Upsy daisy, no more results")
 }
 
 @Composable
