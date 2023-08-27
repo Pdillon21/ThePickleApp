@@ -60,7 +60,8 @@ fun PickleSearchFilters(
             ElevatedContainer(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .wrapContentHeight(),
+                    .wrapContentHeight()
+                    .padding(8.dp),
                 color = pickleAppColors().extraFiltersSurface,
                 sideElevation = 2.dp,
                 bottomElevation = 2.dp,
@@ -214,7 +215,8 @@ fun SearchTypeFilter(searchTypeFilter: String, typeSelected: (String) -> Unit) {
     ElevatedContainer(
         modifier = Modifier
             .fillMaxWidth()
-            .wrapContentHeight(),
+            .wrapContentHeight()
+            .padding(8.dp),
         color = pickleAppColors().typeFilterSurface,
         sideElevation = 2.dp,
         bottomElevation = 2.dp,

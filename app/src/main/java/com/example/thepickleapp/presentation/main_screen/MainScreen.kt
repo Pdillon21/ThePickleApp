@@ -21,16 +21,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.BaseErrorScreen
 import com.example.thepickleapp.presentation.common_views.EmptyLoadingScreen
-import com.example.thepickleapp.presentation.common_views.search.PickleSearchBar
 import com.example.thepickleapp.presentation.common_views.search.PickleSearchFilters
 import com.example.thepickleapp.presentation.common_views.search.PickleSearchSummary
 import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
 import com.example.thepickleapp.presentation.main_screen.search.state.changeQueryInput
-import com.example.thepickleapp.presentation.common_views.general.ElevatedContainer
+import com.example.thepickleapp.presentation.common_views.search.PickleElevatedSearchBar
 import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -75,28 +76,19 @@ fun SearchContainer(
                 )
             )
     ) {
-        ElevatedContainer(
-            modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(8.dp),
-            sideElevation = 2.dp,
-            bottomElevation = 2.dp,
-            color = pickleAppColors().searchBarSurface
-        ) {
-            PickleSearchBar(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp)
-            ) { newSearchPrompt ->
-                queryState = queryState.changeQueryInput(newSearchPrompt)
+        PickleElevatedSearchBar(
+            modifier = Modifier.padding(horizontal = 8.dp),
+            currentQuery = queryState.query,
+            hint = stringResource(R.string.name_to_search_hint),
+            buttonVisible = true,
+            onButtonClicked = {
+                queryState = queryState.changeQueryInput(it)
                 newQuery(queryState)
             }
-        }
+        )
         PickleSearchFilters(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 8.dp),
+                .fillMaxWidth(),
             queryState = queryState,
         ) { newQuery ->
             if (queryState.selectedQueryType != newQuery.selectedQueryType) {

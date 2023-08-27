@@ -20,16 +20,18 @@ fun LocationExtraFiltersContainer(
 ) {
     if (extraFiltersData is ExtraFiltersData.LocationsExtraFilters) {
         Column(modifier = Modifier.fillMaxWidth()) {
-            HighlightPickleSearchBar(
+            ElevatedSearchBarWithLegend(
                 legend = stringResource(R.string.location_type_legend_capitalyzed),
-                query = extraFiltersData.type
+                query = extraFiltersData.type,
+                hint = stringResource(R.string.type_of_location_hint)
             ) { newTypeQuery ->
                 changeExtraFiltersData(extraFiltersData.changeType(newTypeQuery))
             }
             Spacer(modifier = Modifier.height(8.dp))
-            HighlightPickleSearchBar(
+            ElevatedSearchBarWithLegend(
                 legend = stringResource(R.string.dimension_legend_capitalyzed),
-                query = extraFiltersData.dimension
+                query = extraFiltersData.dimension,
+                hint = stringResource(R.string.name_of_dimension_hint)
             ) { newDimensionQuery ->
                 changeExtraFiltersData(extraFiltersData.changeDimension(newDimensionQuery))
             }
