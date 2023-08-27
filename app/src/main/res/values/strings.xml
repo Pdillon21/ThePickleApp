@@ -20,4 +20,9 @@
     <string name="dimension_legend_capitalyzed">"Dimension: "</string>
     <string name="aired_legend_capitalized">Aired:</string>
     <string name="no_more_results">Oops-a-daisy,\nno more results</string>
+    <string name="name_to_search_hint">Name to Search…</string>
+    <string name="type_of_location_hint">Type of location…</string>
+    <string name="name_of_dimension_hint">Name of Dimension…</string>
+    <string name="species_name_hint">Species name…</string>
+    <string name="type_of_character_hint">Type of character…</string>
 </resources>

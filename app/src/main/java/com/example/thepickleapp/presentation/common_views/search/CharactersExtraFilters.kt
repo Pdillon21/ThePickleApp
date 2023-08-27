@@ -157,16 +157,18 @@ fun CharactersExtraFiltersContainer(
                     }
                 }
             }
-            HighlightPickleSearchBar(
+            ElevatedSearchBarWithLegend(
                 legend = stringResource(R.string.species_name_legend_capitalized),
-                query = extraFiltersData.species ?: stringResource(id = R.string.EMPTY_STRING)
+                query = extraFiltersData.species ?: stringResource(id = R.string.EMPTY_STRING),
+                hint = stringResource(R.string.species_name_hint)
             ) { newSpeciesQuery ->
                 changeExtraFiltersData(extraFiltersData.changeSpecies(newSpecies = newSpeciesQuery.ifEmpty { null }))
             }
             Spacer(modifier = Modifier.height(8.dp))
-            HighlightPickleSearchBar(
+            ElevatedSearchBarWithLegend(
                 legend = stringResource(R.string.character_type_legende_capitalized),
-                query = extraFiltersData.type ?: stringResource(id = R.string.EMPTY_STRING)
+                query = extraFiltersData.type ?: stringResource(id = R.string.EMPTY_STRING),
+                hint = stringResource(R.string.type_of_character_hint)
             ) { newTypeQuery ->
                 changeExtraFiltersData(extraFiltersData.changeType(newType = newTypeQuery.ifEmpty { null }))
             }
