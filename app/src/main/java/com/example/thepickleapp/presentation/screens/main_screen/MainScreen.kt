@@ -127,7 +127,10 @@ fun GetResultViewByState(
             }
 
             is MainScreenUiState.Error -> {
-                BaseErrorScreen()
+                BaseErrorScreen(
+                    errorTitle = screenState.errorData?.errorTitle,
+                    errorMessage = screenState.errorData?.errorMessage
+                )
             }
 
             is MainScreenUiState.Success -> {
