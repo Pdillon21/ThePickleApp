@@ -19,4 +19,5 @@
     <string name="location_type_legend_capitalyzed">"Location Type: "</string>
     <string name="dimension_legend_capitalyzed">"Dimension: "</string>
     <string name="aired_legend_capitalized">Aired:</string>
+    <string name="no_more_results">Oops-a-daisy,\nno more results</string>
 </resources>
