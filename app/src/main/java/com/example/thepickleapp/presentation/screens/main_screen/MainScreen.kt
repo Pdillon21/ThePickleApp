@@ -79,8 +79,10 @@ fun SearchContainer(
             currentQuery = queryState.query,
             hint = stringResource(R.string.name_to_search_hint),
             buttonVisible = true,
-            onButtonClicked = {
+            onQuerryChange = {
                 queryState = queryState.changeQueryInput(it)
+            },
+            onButtonClicked = {
                 newQuery(queryState)
             }
         )
