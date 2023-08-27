@@ -1,4 +1,4 @@
-package com.example.thepickleapp.presentation.main_screen
+package com.example.thepickleapp.presentation.screens.main_screen
 
 import com.example.thepickleapp.data.dao.PickleResultDaoBase
 import com.example.thepickleapp.presentation.utils.ErrorData

@@ -16,13 +16,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.general.PickleChip
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
-import com.example.thepickleapp.presentation.main_screen.search.state.changeGender
-import com.example.thepickleapp.presentation.main_screen.search.state.changeSpecies
-import com.example.thepickleapp.presentation.main_screen.search.state.changeStatus
-import com.example.thepickleapp.presentation.main_screen.search.state.changeType
-import com.example.thepickleapp.presentation.main_screen.search.utils.CharacterGender
-import com.example.thepickleapp.presentation.main_screen.search.utils.CharacterStatus
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeGender
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeSpecies
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeStatus
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeType
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.CharacterGender
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.CharacterStatus
 import com.example.thepickleapp.presentation.ui.theme.pickleAppColors
 
 @OptIn(ExperimentalLayoutApi::class)

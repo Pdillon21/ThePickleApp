@@ -1,4 +1,4 @@
-package com.example.thepickleapp.presentation.main_screen.search.state
+package com.example.thepickleapp.presentation.screens.main_screen.search.state
 
 sealed class ExtraFiltersData {
     data class CharacterExtraFilters(

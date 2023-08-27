@@ -97,8 +97,11 @@ fun PickleSearchBarTextField(
         onValueChange = { newQuerry ->
             onQuerryChange(newQuerry)
         },
-        colors = TextFieldDefaults.textFieldColors(
-            containerColor = baseColor,
+        colors = TextFieldDefaults.colors(
+            disabledContainerColor = baseColor,
+            focusedContainerColor = baseColor,
+            errorContainerColor = baseColor,
+            unfocusedContainerColor = baseColor,
             cursorColor = pickleAppColors().episodesAccent,
             selectionColors = TextSelectionColors(
                 handleColor = pickleAppColors().episodesAccent,

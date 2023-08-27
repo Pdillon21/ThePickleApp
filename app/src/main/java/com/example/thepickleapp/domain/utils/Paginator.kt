@@ -2,7 +2,7 @@ package com.example.thepickleapp.domain.utils
 
 import com.example.thepickleapp.data.dao.PickleResultDaoBase
 import com.example.thepickleapp.data.dao.ResponseContainerBase
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
 
 object Paginator {
 

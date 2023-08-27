@@ -3,10 +3,10 @@ package com.example.thepickleapp.domain.use_cases
 import com.example.thepickleapp.data.result_wrapper.PickleResponseStatus
 import com.example.thepickleapp.domain.repo.EpisodesRepository
 import com.example.thepickleapp.domain.utils.Paginator
-import com.example.thepickleapp.presentation.main_screen.MainScreenUiState
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
-import com.example.thepickleapp.presentation.main_screen.search.utils.EpisodeFilterType
+import com.example.thepickleapp.presentation.screens.main_screen.MainScreenUiState
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.EpisodeFilterType
 import com.example.thepickleapp.presentation.utils.ErrorData
 import com.example.thepickleapp.presentation.utils.ErrorUtils
 import kotlinx.coroutines.flow.Flow

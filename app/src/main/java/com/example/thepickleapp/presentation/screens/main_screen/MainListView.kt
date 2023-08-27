@@ -1,4 +1,4 @@
-package com.example.thepickleapp.presentation.main_screen
+package com.example.thepickleapp.presentation.screens.main_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues

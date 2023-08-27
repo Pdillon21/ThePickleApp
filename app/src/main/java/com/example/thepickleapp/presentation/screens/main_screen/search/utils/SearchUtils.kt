@@ -1,7 +1,7 @@
-package com.example.thepickleapp.presentation.main_screen.search.utils
+package com.example.thepickleapp.presentation.screens.main_screen.search.utils
 
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
-import com.example.thepickleapp.presentation.main_screen.search.state.QueryState
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
 
 object SearchUtils {
 

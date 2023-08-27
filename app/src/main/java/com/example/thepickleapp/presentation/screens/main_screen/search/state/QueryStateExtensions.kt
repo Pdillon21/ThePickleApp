@@ -1,7 +1,7 @@
-package com.example.thepickleapp.presentation.main_screen.search.state
+package com.example.thepickleapp.presentation.screens.main_screen.search.state
 
-import com.example.thepickleapp.presentation.main_screen.search.utils.EpisodeFilterType
-import com.example.thepickleapp.presentation.main_screen.search.utils.SearchType
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.EpisodeFilterType
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.SearchType
 
 
 fun QueryState.changeQueryInput(searchPrompt: String): QueryState {

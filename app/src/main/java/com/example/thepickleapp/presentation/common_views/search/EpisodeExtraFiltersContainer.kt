@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.R
 import com.example.thepickleapp.presentation.common_views.general.PickleChip
-import com.example.thepickleapp.presentation.main_screen.search.state.ExtraFiltersData
-import com.example.thepickleapp.presentation.main_screen.search.state.changeQueryType
-import com.example.thepickleapp.presentation.main_screen.search.utils.EpisodeFilterType
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.ExtraFiltersData
+import com.example.thepickleapp.presentation.screens.main_screen.search.state.changeQueryType
+import com.example.thepickleapp.presentation.screens.main_screen.search.utils.EpisodeFilterType
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
