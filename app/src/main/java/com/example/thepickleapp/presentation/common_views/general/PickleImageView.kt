@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.toBitmap
 import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
+import coil.request.CachePolicy
 import coil.request.ImageRequest
 import coil.size.Size
 import com.example.thepickleapp.R
@@ -36,8 +37,8 @@ fun PickleImageView(
     val painter = rememberAsyncImagePainter(
         model = ImageRequest.Builder(LocalContext.current)
             .data(url)
-            .allowHardware(false)
-            .size(Size.ORIGINAL)
+            .diskCachePolicy(CachePolicy.ENABLED)
+            .size(Size(300, 300))
             .build(),
         contentScale = ContentScale.FillBounds
     )
