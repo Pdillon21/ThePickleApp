@@ -1,4 +1,4 @@
-package com.example.thepickleapp.presentation.common_views.general
+package com.example.thepickleapp.presentation.common_views.list_cells
 
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat

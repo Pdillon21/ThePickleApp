@@ -5,12 +5,15 @@ import com.example.thepickleapp.data.dao.character.LocationShortDao
 import com.google.gson.annotations.SerializedName
 
 @Keep
+open class PickleResultBase
+
+@Keep
 open class PickleResultDaoBase(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")
     val name: String?
-)
+) : PickleResultBase()
 
 @Keep
 data class CharacterDao(
@@ -78,6 +81,11 @@ data class EpisodeDao(
     id = episodeId,
     name = episodeName
 )
+
+data class PagingError(
+    val errorTitle: String?,
+    val errorMessage: String?
+) : PickleResultBase()
 
 
 
