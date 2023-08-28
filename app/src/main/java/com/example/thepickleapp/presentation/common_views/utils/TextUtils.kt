@@ -20,4 +20,11 @@ object TextUtils {
     fun getEpisodeDataInitials(string: String): String {
         return string.replace("0", "").uppercase()
     }
+
+    fun getListOfEpisodeDataString(string: String): List<String> {
+        return getEpisodeDataInitials(string)
+            .replace("E", "splitEpisode ")
+            .replace("S", "Season ")
+            .split("split")
+    }
 }

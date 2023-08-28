@@ -25,4 +25,5 @@
     <string name="name_of_dimension_hint">Name of Dimension…</string>
     <string name="species_name_hint">Species name…</string>
     <string name="type_of_character_hint">Type of character…</string>
+    <string name="season_capitalized">Season</string>
 </resources>
