@@ -1,6 +1,8 @@
 package com.example.thepickleapp.di
 
+import android.content.Context
 import com.example.thepickleapp.BuildConfig
+import com.example.thepickleapp.data.remote.NetworkingUtils
 import com.example.thepickleapp.data.repo.CharacterRepositoryImplementation
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
 import com.example.thepickleapp.data.repo.EpisodesRepositoryImplementation
@@ -15,6 +17,7 @@ import com.example.thepickleapp.domain.utils.Paginator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,12 +29,22 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideApi(): RickAndMortyApi {
+    fun provideApi(
+        @ApplicationContext appContext: Context,
+        networkingUtils : NetworkingUtils
+    ): RickAndMortyApi {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
+            .client(networkingUtils.provideCachingClient(appContext))
             .build()
             .create(RickAndMortyApi::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun providesNetworkingUtils(): NetworkingUtils {
+        return NetworkingUtils
     }
 
     @Provides

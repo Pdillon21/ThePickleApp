@@ -24,7 +24,7 @@ class GetEpisodesUseCase @Inject constructor(
             setFetching(true)
             emit(getLoadingState())
             val response = repository.getEpisodes(
-                name = queryData?.query,
+                name = queryData?.query.let { if (!it.isNullOrEmpty()) it else null },
                 episode = null,
                 page = paginator.nextPage
             )
