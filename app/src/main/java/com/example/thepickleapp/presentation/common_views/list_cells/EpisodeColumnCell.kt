@@ -92,11 +92,7 @@ fun EpisodeData(episode: String?) {
     val listOfData: List<String> = if (episode.isNullOrEmpty()) {
         listOf(stringResource(id = R.string.unknown_capitalized))
     } else {
-        //ToDo pass this logic to a single functin in TextUtils
-        TextUtils.getEpisodeDataInitials(episode)
-            .replace("E", "splitEpisode ")
-            .replace("S", "Season ")
-            .split("split")
+        TextUtils.getListOfEpisodeDataString(episode)
     }
     Row(
         horizontalArrangement = Arrangement
@@ -109,10 +105,10 @@ fun EpisodeData(episode: String?) {
             val color: Color = if (
                 listOfData.size != 1
             ) {
-                if (data.contains("Season")) {
+                if (data.contains(stringResource(R.string.season_capitalized))) {
                     pickleAppColors().deadAccent
                 } else {
-                    pickleAppColors().onSurface
+                    pickleAppColors().surface
                 }
             } else {
                 pickleAppColors().unknownAccent
