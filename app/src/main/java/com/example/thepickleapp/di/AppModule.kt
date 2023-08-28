@@ -11,6 +11,7 @@ import com.example.thepickleapp.domain.repo.LocationsRepository
 import com.example.thepickleapp.domain.use_cases.GetCharactersUseCase
 import com.example.thepickleapp.domain.use_cases.GetEpisodesUseCase
 import com.example.thepickleapp.domain.use_cases.GetLocationsUseCase
+import com.example.thepickleapp.domain.utils.Paginator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -68,7 +69,7 @@ object AppModule {
     fun provideGetCharactersUseCase(
         repository: CharacterRepository
     ): GetCharactersUseCase {
-        return GetCharactersUseCase(repository)
+        return GetCharactersUseCase(repository, Paginator)
     }
 
     @Provides
@@ -76,7 +77,7 @@ object AppModule {
     fun provideGetEpisodesUseCase(
         repository: EpisodesRepository
     ): GetEpisodesUseCase {
-        return GetEpisodesUseCase(repository)
+        return GetEpisodesUseCase(repository, Paginator)
     }
 
     @Provides
@@ -84,6 +85,6 @@ object AppModule {
     fun provideGetLocationsUseCase(
         repository: LocationsRepository
     ): GetLocationsUseCase {
-        return GetLocationsUseCase(repository)
+        return GetLocationsUseCase(repository, Paginator)
     }
 }

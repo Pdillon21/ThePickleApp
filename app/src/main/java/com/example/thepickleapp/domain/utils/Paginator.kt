@@ -1,7 +1,9 @@
 package com.example.thepickleapp.domain.utils
 
-import com.example.thepickleapp.data.dao.PickleResultDaoBase
+import com.example.thepickleapp.data.dao.PagingError
+import com.example.thepickleapp.data.dao.PickleResultBase
 import com.example.thepickleapp.data.dao.ResponseContainerBase
+import com.example.thepickleapp.data.result_wrapper.PickleResponseStatus
 import com.example.thepickleapp.presentation.screens.main_screen.search.state.QueryState
 
 object Paginator {
@@ -10,7 +12,8 @@ object Paginator {
     private var totalPages: Int? = null
     var isFinalPage: Boolean = false
     var isPaging: Boolean = false
-    var results: List<PickleResultDaoBase> = emptyList()
+    var errorOcurred: Boolean = false
+    var results: List<PickleResultBase> = emptyList()
     var currentQueryData: QueryState? = null
 
     fun addSucccess(data: ResponseContainerBase) {
@@ -51,6 +54,52 @@ object Paginator {
         totalPages = null
         isFinalPage = false
         isPaging = false
+        errorOcurred = false
         results = emptyList()
+    }
+
+    fun addError(
+        status: PickleResponseStatus,
+        errorMessage: String?
+    ) {
+        isPaging = false
+        isFinalPage = false
+        errorOcurred = true
+        val pagingError = getPagingErrorForStatus(status, errorMessage)
+        pagingError?.let {
+            results = results + pagingError
+        }
+
+    }
+
+    private fun getPagingErrorForStatus(
+        status: PickleResponseStatus,
+        errorMessage: String?
+    ): PickleResultBase? {
+        return when (status) {
+            PickleResponseStatus.SERVER_ERROR -> {
+                PagingError(
+                    errorTitle = "Ups, there was a problem!",
+                    errorMessage = errorMessage
+                        ?: "We couldn't perform this action. Try again later."
+                )
+            }
+
+            PickleResponseStatus.CONNECTION_ERROR -> {
+                PagingError(
+                    errorTitle = "Ups, there was a problem!",
+                    errorMessage = errorMessage
+                        ?: "Verify your interdimensional internet connection."
+                )
+            }
+
+            else -> {
+                null
+            }
+        }
+    }
+
+    fun pagingEnabled(): Boolean {
+       return !isFinalPage && !isPaging && !errorOcurred
     }
 }

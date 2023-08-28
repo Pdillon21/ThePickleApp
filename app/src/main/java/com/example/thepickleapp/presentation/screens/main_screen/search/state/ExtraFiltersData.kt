@@ -1,6 +1,7 @@
 package com.example.thepickleapp.presentation.screens.main_screen.search.state
 
 sealed class ExtraFiltersData {
+
     data class CharacterExtraFilters(
         val status: String?,
         val gender: String?,

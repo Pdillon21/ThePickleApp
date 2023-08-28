@@ -4,13 +4,15 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.thepickleapp.data.dao.CharacterDao
 import com.example.thepickleapp.data.dao.EpisodeDao
 import com.example.thepickleapp.data.dao.LocationDao
-import com.example.thepickleapp.data.dao.PickleResultDaoBase
+import com.example.thepickleapp.data.dao.PagingError
+import com.example.thepickleapp.data.dao.PickleResultBase
 import com.example.thepickleapp.presentation.common_views.general.EndOfListView
 import com.example.thepickleapp.presentation.common_views.general.PagingCell
 import com.example.thepickleapp.presentation.common_views.list_cells.CharacterColumnCell
@@ -19,7 +21,7 @@ import com.example.thepickleapp.presentation.common_views.list_cells.LocationCol
 
 @Composable
 fun MainListView(
-    listState: List<PickleResultDaoBase>,
+    listState: List<PickleResultBase>,
     isPaging: Boolean,
     noMoreResults: Boolean,
     endWasReached: () -> Unit
@@ -45,6 +47,10 @@ fun MainListView(
 
                 is LocationDao -> {
                     LocationColumnCell(item)
+                }
+
+                is PagingError -> {
+                    Text(text = "ErrorPaging")
                 }
             }
         }
