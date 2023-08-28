@@ -25,8 +25,8 @@ class GetLocationsUseCase @Inject constructor(
             emit(getLoadingState())
             val response = repository.getLocations(
                 name = queryData?.query,
-                type = extraFiltersData?.type,
-                dimension = extraFiltersData?.dimension,
+                type = extraFiltersData?.type.let { if (!it.isNullOrEmpty()) it else null },
+                dimension = extraFiltersData?.dimension.let { if (!it.isNullOrEmpty()) it else null },
                 page = paginator.nextPage
             )
             when (response.status) {

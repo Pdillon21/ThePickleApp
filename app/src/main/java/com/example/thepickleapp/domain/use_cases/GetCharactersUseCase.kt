@@ -25,11 +25,11 @@ class GetCharactersUseCase @Inject constructor(
             setFetching(true)
             emit(getLoadingState())
             val response = repository.getCharacters(
-                name = queryData?.query,
-                status = extraFiltersData?.status,
-                species = extraFiltersData?.species,
-                type = extraFiltersData?.type,
-                gender = extraFiltersData?.gender,
+                name = queryData?.query.let { if (!it.isNullOrEmpty()) it else null },
+                status = extraFiltersData?.status.let { if (!it.isNullOrEmpty()) it else null },
+                species = extraFiltersData?.species.let { if (!it.isNullOrEmpty()) it else null },
+                type = extraFiltersData?.type.let { if (!it.isNullOrEmpty()) it else null },
+                gender = extraFiltersData?.gender.let { if (!it.isNullOrEmpty()) it else null },
                 page = paginator.nextPage
             )
             when (response.status) {
