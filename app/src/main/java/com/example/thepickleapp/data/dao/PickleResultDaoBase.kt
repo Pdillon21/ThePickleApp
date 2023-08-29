@@ -17,28 +17,28 @@ open class PickleResultDaoBase(
 
 @Keep
 data class CharacterDao(
-    val characterId: Int?,
-    val characterName: String?,
+    val characterId: Int? = null,
+    val characterName: String? = null,
     @SerializedName("status")
-    val status: String?,
+    val status: String? = null,
     @SerializedName("species")
-    val species: String?,
+    val species: String? = null,
     @SerializedName("type")
-    val type: String?,
+    val type: String? = null,
     @SerializedName("gender")
-    val gender: String?,
+    val gender: String? = null,
     @SerializedName("origin")
-    val origin: LocationShortDao?,
+    val origin: LocationShortDao? = null,
     @SerializedName("image")
-    val image: String?,
+    val image: String? = null,
     @SerializedName("url")
-    val url: String?,
+    val url: String? = null,
     @SerializedName("created")
-    val created: String?,
+    val created: String? = null,
     @SerializedName("location")
-    val location: LocationShortDao?,
+    val location: LocationShortDao? = null,
     @SerializedName("episode")
-    val episode: List<String>?
+    val episode: List<String>? = null
 ) : PickleResultDaoBase(
     id = characterId,
     name = characterName
@@ -46,18 +46,18 @@ data class CharacterDao(
 
 @Keep
 data class LocationDao(
-    val locationId: Int?,
-    val locationName: String?,
+    val locationId: Int? = null,
+    val locationName: String? = null,
     @SerializedName("type")
-    val type: String?,
+    val type: String? = null,
     @SerializedName("dimension")
-    val dimension: String?,
+    val dimension: String? = null,
     @SerializedName("residents")
-    val residents: List<String>?,
+    val residents: List<String>? = null,
     @SerializedName("url")
-    val url: String?,
+    val url: String? = null,
     @SerializedName("created")
-    val created: String?
+    val created: String? = null
 ) : PickleResultDaoBase(
     id = locationId,
     name = locationName

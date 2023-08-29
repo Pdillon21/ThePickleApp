@@ -1,6 +1,5 @@
 package com.example.thepickleapp.data.repo
 
-import com.example.thepickleapp.R
 import com.example.thepickleapp.data.dao.character.CharacterResponseContainer
 import com.example.thepickleapp.data.remote.api.RickAndMortyApi
 import com.example.thepickleapp.data.result_wrapper.PickleRequestResult
